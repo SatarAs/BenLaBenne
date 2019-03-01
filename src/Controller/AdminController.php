@@ -18,47 +18,47 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/account", name="admin_account"
+     * @Route("/admin/account", name="admin_account")
      */
     public function account()
     {
-        return $this->render(':Admin:account.html.twig', [
+        return $this->render('Admin/account.html.twig', [
             'controller_name' => 'AdminController',
         ]);
     }
 
     /**
-     * @Route("/admin/connexion", name="admin_connexion"
+     * @Route("/admin/connexion", name="admin_connexion")
      */
     public function connexion()
     {
-        return $this->render(':Admin:connexion.html.twig', [
+        return $this->render('Admin/connexion.html.twig', [
             'controller_name' => 'AdminController',
         ]);
     }
 
     /**
-     * @Route("/admin/containers", name="admin_containers"
+     * @Route("/admin/containers", name="admin_containers")
      */
     public function containers()
     {
-        return $this->render(':Admin:containers.html.twig', [
+        return $this->render('Admin/containers.html.twig', [
             'controller_name' => 'AdminController',
         ]);
     }
 
     /**
-     * @Route("/admin/containers/{id}", name="admin_containers_manage"
+     * @Route("/admin/containers/{id}", name="admin_containers_manage")
      */
     public function containerManage()
     {
-        return $this->render(':Admin:containers.html.twig', [
+        return $this->render('Admin/containers.html.twig', [
             'controller_name' => 'AdminController',
         ]);
     }
 
     /**
-     * @Route("/admin/add/pictures", name="admin_pictures"
+     * @Route("/admin/add/pictures", name="admin_pictures")
      */
     public function addPictures()
     {
@@ -68,7 +68,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/add/pictures/{id}", name="admin_pictures_manage"
+     * @Route("/admin/add/pictures/{id}", name="admin_pictures_manage")
      */
     public function pictureManage()
     {
@@ -78,7 +78,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/add/articles", name="admin_articles"
+     * @Route("/admin/add/articles", name="admin_articles")
      */
     public function addArticles()
     {
@@ -88,7 +88,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/add/articles/{id}", name="admin_articles_manage"
+     * @Route("/admin/add/articles/{id}", name="admin_articles_manage")
      */
     public function articlesManage()
     {
