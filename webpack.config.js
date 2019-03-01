@@ -48,11 +48,8 @@ Encore
     //.enableTypeScriptLoader()
 
     // uncomment if you're having problems with a jQuery plugin
-<<<<<<< HEAD
     //.autoProvidejQuery()
-=======
     .autoProvidejQuery()
->>>>>>> e554ada3b1aac65d71609c95f0345e2ac0e63e29
 
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
