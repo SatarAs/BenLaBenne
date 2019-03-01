@@ -2,6 +2,8 @@
 # yarn lockfile v1
 
 
+<<<<<<< HEAD
+=======
 "@babel/code-frame@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"
@@ -6335,3 +6337,4 @@ yargs@^8.0.1:
     which-module "^2.0.0"
     y18n "^3.2.1"
     yargs-parser "^7.0.0"
+>>>>>>> e554ada3b1aac65d71609c95f0345e2ac0e63e29
