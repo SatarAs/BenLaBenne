@@ -1,3 +1,3 @@
-#Index:
-#    path: /
-#    controller: App\Controller\DefaultController::Index
+Index:
+    path: /
+    controller: App\Controller\Index\IndexController::Index
