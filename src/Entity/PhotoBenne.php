@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PhotoBenneRepository")
- * @ORM\OneToOne(targetEntity="Benne")
  */
 class PhotoBenne
 {
@@ -31,6 +30,29 @@ class PhotoBenne
      * @ORM\Column(type="float", nullable=true)
      */
     private $altitude;
+
+    /**
+     * @ORM\JoinColumn()
+     * @ORM\OneToOne(targetEntity="Benne", inversedBy="photobenne")
+     */
+    private $benne;
+
+    /**
+     * @return mixed
+     */
+    public function getBenne()
+    {
+        return $this->benne;
+    }
+
+    /**
+     * @param mixed $benne
+     */
+    public function setBenne($benne): void
+    {
+        $this->benne = $benne;
+    }
+
 
     public function getId(): ?int
     {
