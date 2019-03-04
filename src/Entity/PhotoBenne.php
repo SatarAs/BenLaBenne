@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PhotoBenneRepository")
+ * @ORM\OneToOne(targetEntity="Benne")
  */
 class PhotoBenne
 {

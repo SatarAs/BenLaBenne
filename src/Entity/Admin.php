@@ -6,6 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
+ * @ORM\OneToMany(targetEntity="Article")
+ * @ORM\OneToMany(targetEntity="PhotoBenne")
+ * @ORM\OneToMany(targetEntity="User")
  */
 class Admin
 {
