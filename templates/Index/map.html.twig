@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block stylesheets %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -19,7 +21,12 @@
             maxZoom: 18,
             id: 'mapbox.streets',
             accessToken: 'pk.eyJ1IjoibWl0aHJhbmR5bGwiLCJhIjoiY2pzdDNzY21uMWs2aTQ0b2UwZGhrZXJuOSJ9.vPcgilVsgFfkHJxICyQlhw'
+
         }).addTo(mymap);
+
+
+
+
 
     </script>
 {% endblock %}
@@ -27,7 +34,10 @@
 
 {% block body %}
 
-    <div id="mapid" style="height: 800px;"></div>
+    <div id="mapid" style="height: 400px;"></div>
+    {% for js in json  %}
+        <p>{{ fp }}</p>
+    {% endfor %}
 
 
 {% endblock %}

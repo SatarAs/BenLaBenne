@@ -4,6 +4,8 @@ namespace App\Controller\Index;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Loader\FileLoader;
 
 class IndexController extends AbstractController
 {
@@ -51,8 +53,23 @@ class IndexController extends AbstractController
      */
     public function map()
     {
+        /*
+        $configDirectories = [__DIR__.'../../Repository/Json'];
+            $fileLocator = new FileLocator($configDirectories);
+            $jsonUserFiles = $fileLocator->locate('data.json', null, false);
+            dump($jsonUserFiles);
+        */
+      // $fp = fopen('C:\Users\Romain\PhpstormProjects\BenLaBenne\src\Repository\Json\data.json','r');
+       //var_dump($fp);
+        $fp= file_get_contents("C:\Users\Romain\PhpstormProjects\BenLaBenne\src\Repository\Json\data.json");
+        var_dump($fp);
+       //$fp2 = json_decode($fp);
+      // var_dump($fp2);
+
         return $this->render('Index/map.html.twig', [
             'controller_name' => 'IndexController',
+            'json' => 'ok'
+
         ]);
     }
 
