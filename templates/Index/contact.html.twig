@@ -1,0 +1,63 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+
+
+
+ <div class="container margin-top">
+     <div class="row">
+         <div class="col-sm-9" style="text-align: center">
+             <h2>Contactez-nous</h2>
+             <form action="/action_page.php">
+                     <!-- Nom -->
+                     <div class="form-group margin-top ">
+                         <div class="col-sm-6 rounded mx-auto d-block">
+                             <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control input-md">
+                         </div>
+                     </div>
+
+                     <!-- Adresse -->
+                     <div class="form-group">
+                         <div class="col-sm-6 rounded mx-auto d-block">
+                             <input id="adresse" name="adresse" type="text" placeholder="Adresse" class="form-control input-md">
+                         </div>
+                     </div>
+
+                     <!-- Email -->
+                     <div class="form-group">
+                         <div class="col-sm-6 rounded mx-auto d-block">
+                             <input id="email" name="email" type="email" placeholder="Adresse Email" class="form-control input-md">
+                         </div>
+                     </div>
+
+                     <!-- Code postal -->
+                     <div class="form-group">
+                         <div class="col-sm-6 rounded mx-auto d-block">
+                             <input id="sujet" name="sujet" type="text" placeholder="Code postal puto" class="form-control input-md">
+                         </div>
+                     </div>
+
+                     <!-- Message -->
+                     <div class="form-group">
+                         <div class="col-sm-6 rounded mx-auto d-block">
+                             <textarea id="message" name="message" rows="5" placeholder="Message" class="form-control"></textarea>
+                         </div>
+                     </div>
+                 <button type="submit" class="btn btn-success">Envoyer</button>
+             </form>
+         </div>
+         <div class="col-sm-3" style="text-align: center">
+
+             <img  src="https://fr.cdn.v5.futura-sciences.com/buildsv6/images/wide1920/f/6/b/f6b0f09bcc_89652_recyclage-verre.jpg"  calt="..." class="img-thumbnail">
+
+         </div>
+     </div>
+
+     </div>
+ </div>
+
+
+
+
+
+
+{% endblock %}
