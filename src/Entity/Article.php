@@ -36,6 +36,28 @@ class Article
      */
     private $created_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="article")
+     */
+    private $admin;
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin): void
+    {
+        $this->admin = $admin;
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
