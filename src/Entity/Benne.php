@@ -26,6 +26,23 @@ class Benne
      */
     private $photobenne;
 
+    /**
+     * @return mixed
+     */
+    public function getPhotobenne()
+    {
+        return $this->photobenne;
+    }
+
+    /**
+     * @param mixed $photobenne
+     */
+    public function setPhotobenne($photobenne): void
+    {
+        $this->photobenne = $photobenne;
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
