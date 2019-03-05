@@ -62,13 +62,13 @@ class IndexController extends AbstractController
       // $fp = fopen('C:\Users\Romain\PhpstormProjects\BenLaBenne\src\Repository\Json\data.json','r');
        //var_dump($fp);
         $fp= file_get_contents("C:\Users\Romain\PhpstormProjects\BenLaBenne\src\Repository\Json\data.json");
-        var_dump($fp);
+        $fp = json_decode($fp);
        //$fp2 = json_decode($fp);
       // var_dump($fp2);
 
         return $this->render('Index/map.html.twig', [
             'controller_name' => 'IndexController',
-            'json' => 'ok'
+            'json' => $fp
 
         ]);
     }
