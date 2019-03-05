@@ -41,6 +41,9 @@ class PhotoBenne
      * @return mixed
      */
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="photobenne")
+     */
     private $admin;
 
     /**
