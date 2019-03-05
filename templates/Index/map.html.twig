@@ -1,51 +1,75 @@
-{% extends 'base.html.twig' %}
-
-
+{% extends 'layout.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-          crossorigin=""/>
 
-{% endblock %}
-
+    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" href="{{ asset('node_modules/leaflet/dist/leaflet.css') }}"/>
+    <script src="{{ asset('node_modules/leaflet/dist/leaflet.js') }}"></script> -->
 
 
-{% block body %}
-
-    <div id="mapid" style="height: 400px;"></div>
-
-
-
-
-
-
-
-
-{% block javascripts %}
-    {% for js in json.features %}
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-            crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="{{ asset('Json/benne.json') }}"></script>
     <script>
-        var mymap = L.map('mapid').setView([45.75, 4.85], 13);
-       L.marker([4.838780530906668, 45.749001113701539]).addTo(mymap);
-
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox.streets',
-            accessToken: 'pk.eyJ1IjoibWl0aHJhbmR5bGwiLCJhIjoiY2pzdDNzY21uMWs2aTQ0b2UwZGhrZXJuOSJ9.vPcgilVsgFfkHJxICyQlhw'
-
-        }).addTo(mymap);
 
 
 
+        window.onload = function () {
+            console.log('Page chargée ');
+
+            var map = L.map('map').setView([45.764043, 4.835659], 11);
+            var titleStreets = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                maxZoom: 18,
+                id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoiMTY5NTciLCJhIjoiY2pzcHhodDB5MHF4YjQzbzA3dHByb3V2ZiJ9.CiBSDPowlgXwoiRjIlhTKg'
+            }).addTo(map);
+
+            geojson = L.geoJson(Verre, {
+                style: function (feature) {
+                    return feature.properties && feature.properties.style;
+                },
+                pointToLayer: function (feature, latlng) {
+                    var marker =  L.marker(latlng);
+                    marker.bindPopup('<b><u>Description de la benne</u></b><br>'
+                        + '<b>Commune:</b>'+ feature.properties.commune + '<br>'
+                        + '<b>Adresse : </b>' + feature.properties.adresse + '<br>'
+                        + '<b>Code commune : </b>' + feature.properties.code_com + '<br>'
+                    );
+                    return marker ;
+
+                }
+            }).addTo(map);
+
+
+        }
 
 
     </script>
-    {% endfor %}
+
 {% endblock %}
+
+{% block title %}Hello OpenstreetmapController!{% endblock %}
+
+{% block body %}
+
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    Affichage de la carte :
+
+
+
+
+
+    <div id="map" style="height: 400px"></div>
+
+
+
+
+    {% block javascripts %}
+
+
+
+    {% endblock %}
 
 
 {% endblock %}
