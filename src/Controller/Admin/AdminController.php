@@ -57,43 +57,4 @@ class AdminController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/admin/add/pictures", name="admin_pictures")
-     */
-    public function addPictures()
-    {
-        return $this->render('Admin/Add/pictures.html.twig', [
-            'controller_name' => 'AdminController',
-        ]);
-    }
-
-    /**
-     * @Route("/admin/add/pictures/{id}", name="admin_pictures_manage")
-     */
-    public function pictureManage()
-    {
-        return $this->render('Admin/Add/pictures.html.twig', [
-            'controller_name' => 'AdminController',
-        ]);
-    }
-
-    /**
-     * @Route("/admin/add/articles", name="admin_articles")
-     */
-    public function addArticles()
-    {
-        return $this->render('Admin/Add/articles.html.twig', [
-            'controller_name' => 'AdminController',
-        ]);
-    }
-
-    /**
-     * @Route("/admin/add/articles/{id}", name="admin_articles_manage")
-     */
-    public function articlesManage()
-    {
-        return $this->render('Admin/Add/articles.html.twig', [
-            'controller_name' => 'AdminController',
-        ]);
-    }
 }
