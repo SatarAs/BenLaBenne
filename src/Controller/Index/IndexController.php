@@ -10,6 +10,9 @@ use Symfony\Component\Config\Loader\FileLoader;
 class IndexController extends AbstractController
 {
 
+    /**
+     * @Route("/", name="index_home")
+     */
     public function index()
     {
         return $this->render('Index/home.html.twig', [
