@@ -80,6 +80,8 @@ class IndexController extends AbstractController
         return $this->render('Index/home.html.twig', [
             'controller_name' => 'IndexController',
         ]);
+
+        
     }
 
     /**
