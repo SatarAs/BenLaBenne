@@ -303,6 +303,21 @@ body > nav{
 #map {
     height: 100%;
 }
+/*body > div.container-fluid.margin-top {
+    background-image: url("/img/1.png");
 
+    height:500px;
+    background-repeat: no-repeat;
+    background-size: 500px;
+}
+*/
+
+.vide {
+    background-image: url("/img/1.png");
+    height:400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1000px;
+}
 
 
