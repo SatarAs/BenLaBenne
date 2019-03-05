@@ -18,8 +18,10 @@ nav {
 
 footer {
     background-color: #3c8564;
+    position: relative;
     margin:-100px auto 0;
     width: 100%;
+    bottom: 0;
 }
 
 
@@ -308,6 +310,8 @@ body > nav{
 ::-webkit-scrollbar {
     display: none;
 }
+
+
 
 
 

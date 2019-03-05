@@ -50,6 +50,16 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+    /**
+     * @Route("/mentionLegales", name="mentionLegales")
+     */
+    public function mentionLegales()
+    {
+        return $this->render('static/mentionLegales.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
 
     /**
      * @Route("/map", name="map")
