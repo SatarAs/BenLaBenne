@@ -40,6 +40,28 @@ class PhotoBenne
     /**
      * @return mixed
      */
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="photobenne")
+     */
+    private $admin;
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin): void
+    {
+        $this->admin = $admin;
+    }
+
     public function getBenne()
     {
         return $this->benne;
