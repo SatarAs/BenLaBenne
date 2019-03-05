@@ -1,0 +1,636 @@
+{
+  "type": "FeatureCollection",
+  "name": "gic_collecte.gicsiloverre",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 7 ÈME",
+        "code_postal": "69007",
+        "voie": "Rue Chevreul",
+        "numerodansvoie": "24",
+        "gestionnaire": "Col Sud",
+        "observation": "",
+        "identifiant": "7675",
+        "code_insee": "69387",
+        "gid": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.838780530906668,
+          45.749001113701539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 8 ÈME",
+        "code_postal": "69008",
+        "voie": "Rue Professeur Kleinclausz",
+        "numerodansvoie": "14",
+        "gestionnaire": "Col Sud",
+        "observation": "Numéro 23",
+        "identifiant": "7066",
+        "code_insee": "69388",
+        "gid": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.859952972550687,
+          45.737382188515546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "MIONS",
+        "code_postal": "69780",
+        "voie": "Square Agnès Neyret Jaures face Rue Joanny Sage",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "E506",
+        "code_insee": "69283",
+        "gid": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.953471663545674,
+          45.666778894081908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LIMONEST",
+        "code_postal": "69760",
+        "voie": "Route Départementale 306",
+        "numerodansvoie": "1244",
+        "gestionnaire": "Col Nord-Ouest",
+        "observation": "Arrêt de bus vers Aviva",
+        "identifiant": "1010",
+        "code_insee": "69116",
+        "gid": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.77591697654058,
+          45.814983258777247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 9 ÈME",
+        "code_postal": "69009",
+        "voie": "Rue Françoise Giroud",
+        "numerodansvoie": "8",
+        "gestionnaire": "Col Nord-Ouest",
+        "observation": "",
+        "identifiant": "E501",
+        "code_insee": "69389",
+        "gid": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.793534129077294,
+          45.785061396348802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "SAINT-PRIEST",
+        "code_postal": "69800",
+        "voie": "Rue de Lombardie",
+        "numerodansvoie": "1",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "3008",
+        "code_insee": "69290",
+        "gid": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.955716659706174,
+          45.71289408004953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 3 ÈME",
+        "code_postal": "69003",
+        "voie": "Place de Milan",
+        "numerodansvoie": "21",
+        "gestionnaire": "Col Est",
+        "observation": "Face au N° 21 et N° 23",
+        "identifiant": "3011",
+        "code_insee": "69383",
+        "gid": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.858946548769569,
+          45.761884757804943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "CHASSIEU",
+        "code_postal": "69680",
+        "voie": "Rue Ampère",
+        "numerodansvoie": "22",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "3012",
+        "code_insee": "69271",
+        "gid": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.975371096489248,
+          45.72936986864601
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "JONAGE",
+        "code_postal": "69330",
+        "voie": "Rue Jean Moulin",
+        "numerodansvoie": "1",
+        "gestionnaire": "Col Est",
+        "observation": "Entre N°1 et N° 3",
+        "identifiant": "3016",
+        "code_insee": "69279",
+        "gid": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.054587537985502,
+          45.799367446348114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "JONAGE",
+        "code_postal": "69330",
+        "voie": "Boulevard Louis Pradel",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "Vers Ronds point à l'arrêt de bus",
+        "identifiant": "3017",
+        "code_insee": "69279",
+        "gid": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.041922351920018,
+          45.790427876595984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "DECINES-CHARPIEU",
+        "code_postal": "69150",
+        "voie": "Rue Cornavent",
+        "numerodansvoie": "19",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "3018",
+        "code_insee": "69275",
+        "gid": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.966205370824341,
+          45.769331402200031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 7 ÈME",
+        "code_postal": "69007",
+        "voie": "Place Commandant Claude Bulard",
+        "numerodansvoie": "1",
+        "gestionnaire": "Col Sud",
+        "observation": "",
+        "identifiant": "7033",
+        "code_insee": "69387",
+        "gid": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.842449523684532,
+          45.753784067297765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "OULLINS",
+        "code_postal": "69600",
+        "voie": "Rue des Droits de l'Homme",
+        "numerodansvoie": "6",
+        "gestionnaire": "Col Sud",
+        "observation": "",
+        "identifiant": "E113",
+        "code_insee": "69149",
+        "gid": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.80183199509446,
+          45.712924436144462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "CORBAS",
+        "code_postal": "69960",
+        "voie": "Rue des Lilas",
+        "numerodansvoie": "1",
+        "gestionnaire": "Col Sud",
+        "observation": "",
+        "identifiant": "7062",
+        "code_insee": "69273",
+        "gid": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.895756707647446,
+          45.663935010333802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "ALBIGNY-SUR-SAONE",
+        "code_postal": "69250",
+        "voie": "Rue Jean Chirat",
+        "numerodansvoie": "1",
+        "gestionnaire": "Col Nord-Ouest",
+        "observation": "",
+        "identifiant": "E504",
+        "code_insee": "69003",
+        "gid": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.832169644313046,
+          45.865130809534072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "DECINES-CHARPIEU",
+        "code_postal": "69150",
+        "voie": "a cte du 51 Rue Vaucanson face EFS",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "4167",
+        "code_insee": "69275",
+        "gid": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.942339879517959,
+          45.753812581019062
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "VILLEURBANNE",
+        "code_postal": "69100",
+        "voie": "face au 167 Crs Tolstoi",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "4163",
+        "code_insee": "69266",
+        "gid": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.889136709208789,
+          45.759713492388272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "DECINES-CHARPIEU",
+        "code_postal": "69150",
+        "voie": "En face du 8 Rue Vaucanson",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "4166",
+        "code_insee": "69275",
+        "gid": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.936797702482807,
+          45.753502953622998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "FRANCHEVILLE",
+        "code_postal": "69340",
+        "voie": "Rue de la Doulline",
+        "numerodansvoie": "2",
+        "gestionnaire": "Col Sud",
+        "observation": "",
+        "identifiant": "5175",
+        "code_insee": "69089",
+        "gid": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.761556159854884,
+          45.737647165804788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "RILLIEUX-LA-PAPE",
+        "code_postal": "69140",
+        "voie": "Rue de la République",
+        "numerodansvoie": "8",
+        "gestionnaire": "Col Nord-Ouest",
+        "observation": "",
+        "identifiant": "4350",
+        "code_insee": "69286",
+        "gid": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.899202034366342,
+          45.822385480424231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 5 ÈME",
+        "code_postal": "69005",
+        "voie": "Rue Docteur Albéric Pont",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Nord-Ouest",
+        "observation": "angle rue des Granges",
+        "identifiant": "1511",
+        "code_insee": "69385",
+        "gid": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.797909237184583,
+          45.754059271313935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 5 ÈME",
+        "code_postal": "69005",
+        "voie": "Avenue du Doyenné",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Nord-Ouest",
+        "observation": "Angle Avenue Adolphe Max",
+        "identifiant": "6986",
+        "code_insee": "69385",
+        "gid": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.826506234853914,
+          45.760104444992599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "FRANCHEVILLE",
+        "code_postal": "69340",
+        "voie": "Chemin de la Poterie",
+        "numerodansvoie": "Face au N°",
+        "gestionnaire": "Col Sud",
+        "observation": "Face au n° 1, après les stationnements",
+        "identifiant": "6962",
+        "code_insee": "69089",
+        "gid": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.761198454792476,
+          45.750429743894138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "VILLEURBANNE",
+        "code_postal": "69100",
+        "voie": "Rue Paul Kruger \/ Rue de Wett",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "3759",
+        "code_insee": "69266",
+        "gid": "24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.896801131180903,
+          45.755611902308033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 6 ÈME",
+        "code_postal": "69006",
+        "voie": "Place Puvis de Chavannes\/Rue de Créqui",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "DEUX SILOS",
+        "identifiant": "2004",
+        "code_insee": "69386",
+        "gid": "25"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.845475107021888,
+          45.771469710007437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 6 ÈME",
+        "code_postal": "69006",
+        "voie": "Rue Félix Jacquier angle Rue Bareme",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "2044",
+        "code_insee": "69386",
+        "gid": "26"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.847153034557991,
+          45.774688220625954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "LYON 6 ÈME",
+        "code_postal": "69006",
+        "voie": "Quai Sarrail \/Cours Lafayette",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "2062",
+        "code_insee": "69386",
+        "gid": "27"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.841324611732723,
+          45.763803064944504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "VILLEURBANNE",
+        "code_postal": "69100",
+        "voie": "Angle Rt de Genas Meunier",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "3684",
+        "code_insee": "69266",
+        "gid": "28"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.877235895081633,
+          45.755005729276945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "VILLEURBANNE",
+        "code_postal": "69100",
+        "voie": "Rue Octavie face au N°67",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "4027",
+        "code_insee": "69266",
+        "gid": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.889365918964991,
+          45.777885587595655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "commune": "VILLEURBANNE",
+        "code_postal": "69100",
+        "voie": "Rue du 8 Mai 1945 rue marcel sembat",
+        "numerodansvoie": "",
+        "gestionnaire": "Col Est",
+        "observation": "",
+        "identifiant": "4028",
+        "code_insee": "69266",
+        "gid": "30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.892165300228645,
+          45.77754739954819
+        ]
+      }
+    }
+  ]
+}
