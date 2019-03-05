@@ -21,6 +21,11 @@ class Benne
      */
     private $jourcollecte;
 
+    /**
+     * @ORM\OneToOne(targetEntity="PhotoBenne", mappedBy="benne")
+     */
+    private $photobenne;
+
     public function getId(): ?int
     {
         return $this->id;
