@@ -10,6 +10,9 @@ use Symfony\Component\Config\Loader\FileLoader;
 class IndexController extends AbstractController
 {
 
+    /**
+     * @Route("/", name="index_home")
+     */
     public function index()
     {
         return $this->render('Index/home.html.twig', [
@@ -47,6 +50,16 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+    /**
+     * @Route("/mentionLegales", name="mentionLegales")
+     */
+    public function mentionLegales()
+    {
+        return $this->render('static/mentionLegales.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
 
     /**
      * @Route("/map", name="map")
@@ -89,7 +102,7 @@ class IndexController extends AbstractController
      */
     public function newsletter()
     {
-        return $this->render('Index/home.html.twig', [
+        return $this->render('static/newsletter.html.twig', [
             'controller_name' => 'IndexController',
         ]);
     }

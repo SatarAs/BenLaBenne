@@ -1,8 +1,43 @@
 {% extends "layout.html.twig" %}
-
-{% block page_title %} Admin {% endblock %}
+{% set active = 'admin_index' %}
+{% set active_link = 'administration' %}
+{% block page_title %} Panel{% endblock %}
 
 {% block content %}
 
-    <h1>Admin Index</h1>
+    <main class="no-bg">
+        <div class="container">
+            <div class="row">
+
+                {# Navigation de l'admin#}
+                {% include "admin/adminComp/_navigation.html.twig" %}
+
+                <!-- Contenu du dashboard -->
+                <div class="col-xs-12 col-md-8">
+
+                    <div class="content-box-header">
+                        <div class="panel-title titre-moncompte"><p>Bonjour,</p></div>
+                    </div>
+
+
+                    <div class="content-box-large box-with-header">
+                        <p>&#192 ce jour, vous avez :</p>
+                        <ul class="recap animated fadeIn">
+
+                            <li><a href=""><i class="glyphicon glyphicon-record vert"></i><p> demandes en attente</p></a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-menu-hamburger vert"></i><p> &oelig;uvres disponibles</p></a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-menu-hamburger orange"></i><p> &oelig;uvres indisponibles</p></a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-user bleu"></i><p> clients enregistr&#233;s</p></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+        </div> <!-- /.row -->
+        </div>
+    </main>
+
 {% endblock %}

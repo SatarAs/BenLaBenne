@@ -1,0 +1,73 @@
+{% extends "layout.html.twig" %}
+{% set active = 'admin_articles_manage' %}
+{% set active_link = 'admin__articles_dispo' %}
+{% block page_title %} Articles Disponibles {% endblock %}
+
+{% block content %}
+    <main class="no-bg">
+        <div class="container">
+            <div class="row">
+                {# Navigation de l'admin#}
+                {% include "admin/adminComp/_navigation.html.twig" %}
+
+                <div class=" col-xs-12 col-md-8">
+
+                    <div class="content-box-header">
+                        <div class="panel-title titre-moncompte"><p>Vous avez 2 article(s) disponible(s) </p></div>
+                    </div>
+
+
+                    <div class="oeuvre content-box-large box-with-header">
+                        <div class="row">
+                            <table class="table table-striped">
+
+                                <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Titre de l'article</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr class="animated fadeIn">
+                                        <td>
+                                            <a href="">
+                                                <img class="img-list img-responsive" src="" alt="">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="">
+                                                <span class="middle"></span>
+                                            </a>
+                                        </td>
+                                        <td> Titre </td>
+                                        <td ><a class="bouton-modifier"href="{#{{ url('admin_article_edit') }}#}"><i class="glyphicon glyphicon-edit"></i><span class="hidden-xs hidden-sm ">  Modifier</span></a></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="pagination">
+
+                                    {#{% for p in 1..nbpages %}
+                                        <a {% if p== current %} class="current" {%endif%}
+                                                href="{{ url('admin_articles_manage', {p:p}) }}">{{ p }}</a>
+                                    {% endfor  %}
+                                    #}
+                                </div> <!-- /.pagination -->
+                            </div> <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+        </div>
+        </div>
+    </main>
+
+
+{% endblock %}
