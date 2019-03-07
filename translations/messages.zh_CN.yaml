@@ -1,2 +1,7 @@
 phrase_menu:
     testMessage: 到目前为止，你有
+texte_menu:
+  accueil: 主页
+  actualites: 新闻
+  notreBut: 我们的目标
+  contact: 联系我们
