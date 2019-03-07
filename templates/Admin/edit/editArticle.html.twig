@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% set active_link = 'admin_article_edit' %}
 {% block page_title %}
-    Modifier l'article
+    Modifier un article
 {% endblock %}
 
 {% block stylesheets %}
@@ -11,10 +11,12 @@
 {% block content %}
     <main class="no-bg">
         <div class="container margin-top">
-            <div class="row" >
+            <div class="row" style="background-color:#018a67; padding: 50px;" >
 
 
-                <form style="background-color:#018a67; padding: 20px;">
+                <form>
+                    <h1 style="text-align: center;">Modifie ton article</h1>
+
                     <div class="form-group row" style="align-content:center;">
                         <div class="col-sm-12">
                             <input type="text" style="text-align:center;" class="form-control" id="" placeholder="nom de l'article">
@@ -54,33 +56,48 @@
                         </div>
                     </div>
 
-                    <form style="background-color:#018a67; padding: 20px;">
-                        <div class="form-group row" style="align-content:center;">
-                            <div class="col-sm-12">
-                                <input type="text" style="text-align:center;" class="form-control" id="" placeholder="Allez Baudelaire, écrit l'article ici">
-                            </div>
+
+                    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+
+                    <script type="text/javascript">
+                        tinymce.init({
+                            selector: '#mytextarea'
+                        });
+                    </script>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <form method="post">
+                                <textarea id="mytextarea">Allez Baudelaire, écrit ton article ici</textarea>
+                            </form>
                         </div>
+                    </div>
 
 
 
 
 
 
-                        <div class="form-group row">
-                            <div class="col-sm-5">
-                                <button type="submit" class="btn btn-default">Annuler</button>
-                            </div>
-                            <div class="col-sm-5">
-                                <button type="submit" class="btn btn-default">Enregistrer</button>
-                            </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-default">Annuler</button>
+
+                            <button type="submit" class="btn btn-default">Enregistrer</button>
                         </div>
+                    </div>
 
-                    </form>
-            </div><!-- /.row> -->
+
+
+
+                </form>
+            </div>    <!-- /.row> -->
         </div>
     </main>
+
+
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
+
+
 {% endblock %}
