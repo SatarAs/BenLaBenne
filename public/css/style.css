@@ -328,3 +328,21 @@ body > nav{
     color: #3c8564;
     background-color: white;
 }
+
+
+
+/****************************************admin**********************************************/
+#boutoncolor > a {
+    color: white;
+}
+#boutoncolor > a:hover {
+    color: #3c8564!important;
+}
+
+body > div.container.margin-top > div > div.col-sm-4.margin-top > ul > div {
+    width: 50%;
+}
+
+body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div > a > i {
+    padding-right: 10px;
+}

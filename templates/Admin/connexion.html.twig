@@ -1,2 +1,37 @@
+{% extends "layout.html.twig" %}
+
+{% block page_title %} Admin/connexion {% endblock %}
+
+{% block content %}
+
+
+<div class="container margin-top" style="margin-bottom: 14%">
+    <div class="row">
+        <div class="col-sm-12" style="text-align: center">
+
+            <form action="/action_page.php">
+                <h1 class="margin-bottom">Connectez-vous</h1>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <div class="col-sm-6 rounded mx-auto d-block">
+                        <input id="email" name="email" type="email" placeholder="Adresse e-mail" class="form-control input-md">
+                    </div>
+                </div>
+                <!-- mdp -->
+                <div class="form-group">
+                    <div class="col-sm-6 rounded mx-auto d-block">
+                        <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control input-md">
+                    </div>
+                </div>
+
+                <button type="submit"   class="btn btn-danger">Annuler</button>
+                <button type="submit"  id="boutoncolor" class="btn btn-"><a href="{{ url('admin_index') }}" style="color: white">Connexion</a></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
 
 
