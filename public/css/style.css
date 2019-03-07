@@ -19,6 +19,10 @@ footer {
     width: 100%;
     bottom: 0;
 }
+#logo {
+    background-color: white;
+    border-radius: 60px;
+}
 li {
     text-align: center;
 }
@@ -299,6 +303,28 @@ body > nav{
 #map {
     height: 100%;
 }
+/*body > div.container-fluid.margin-top {
+    background-image: url("/img/1.png");
 
+    height:500px;
+    background-repeat: no-repeat;
+    background-size: 500px;
+}
+*/
 
+.vide {
+    background-image: url("/img/1.png");
+    height:400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1000px;
+}
 
+#boutoncolor {
+    color: white;
+    background-color: #3c8564;
+}
+#boutoncolor:hover {
+    color: #3c8564;
+    background-color: white;
+}
