@@ -1,3 +1,9 @@
 Index:
-    path: /
+    path: /{_locale}
     controller: App\Controller\Index\IndexController::Index
+    requirements:
+        _locale: 'fr'
+    defaults:
+        template: Index/home.html.twig
+        _locale: '%locale%'
+
