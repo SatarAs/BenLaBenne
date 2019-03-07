@@ -32,7 +32,7 @@
                     var marker =  L.marker(latlng);
                     marker.bindPopup('<b><u>Description de la benne</u></b><br>'
                         + '<b>Commune:</b>'+ feature.properties.commune + '<br>'
-                        + '<b>Adresse : </b>' + feature.properties.adresse + '<br>'
+                        + '<b>Adresse : </b>' + feature.properties.numerodansvoie + feature.properties.voie + '<br>'
                         + '<b>Code commune : </b>' + feature.properties.code_com + '<br>'
                     );
                     return marker ;
@@ -42,7 +42,7 @@
 
             map.locate({setView: true, watch: true}) /* This will return map so you can do chaining */
                 .on('locationfound', function(e){
-                    var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
+                    var marker = L.marker([e.latitude, e.longitude]).bindPopup('Vous êtes ici :)');
                     var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
                         weight: 1,
                         color: 'blue',
