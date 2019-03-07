@@ -2,10 +2,12 @@
 
 namespace App\Controller\Index;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\FileLoader;
+use Symfony\Component\HttpFoundation\Response;
 
 class IndexController extends AbstractController
 {
@@ -88,22 +90,19 @@ class IndexController extends AbstractController
     /**
      * @Route("/newsletter", name="newsletter")
      */
-    public function newsletter()
+    public function newsletter(\Swift_Mailer $mailer)
     {
-        return $this->render('static/newsletter.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
 
-    } public function mail(\Swift_Mailer $mailer){
     $message = (new \Swift_Message('Votre souscription à la Newsletters'))
         ->setFrom('contact@benlabenne.com')
         ->SetTo('test@gmail.com')
         ->SetCc('test2@gmail.com')
-        ->SetBody($this->renderView('newsletter.html.twig'));
+        ->SetBody($this->renderView('static/newsletter.html.twig'));
 
     $mailer->send($message);
-    return $this->redirectToRoute('home.html.twig');
-}
+    return $this->render('Index/home.html.twig');
+    }
+
 
     /**
      * @Route("/team", name="team")
