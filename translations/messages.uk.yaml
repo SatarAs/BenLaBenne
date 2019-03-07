@@ -1,2 +1,7 @@
 phrase_menu:
     testMessage: To date, you have
+texte_menu:
+  accueil: Home
+  actualites: News
+  notreBut: Our goal
+  contact: Contact us
