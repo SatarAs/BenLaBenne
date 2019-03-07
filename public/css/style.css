@@ -346,3 +346,16 @@ body > div.container.margin-top > div > div.col-sm-4.margin-top > ul > div {
 body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div > a > i {
     padding-right: 10px;
 }
+
+
+.loader {
+
+    position : fixed;
+    z-index: 9999;
+    background : url('/img/logoP4.png') 50% 50% no-repeat;
+    top : 0px;
+    left : 0px;
+    height : 100%;
+    width : 100%;
+    cursor : wait;
+}
