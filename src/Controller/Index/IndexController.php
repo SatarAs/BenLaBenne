@@ -92,6 +92,7 @@ class IndexController extends AbstractController
     {
         return $this->render('static/newsletter.html.twig', [
             'controller_name' => 'IndexController',
+
         ]);
 
 
