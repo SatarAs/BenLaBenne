@@ -22,6 +22,27 @@ class User
     private $message;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="user")
+     */
+    private $admin;
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin): void
+    {
+        $this->admin = $admin;
+    }
+
+    /**
      * @return mixed
      */
     public function getMessage()

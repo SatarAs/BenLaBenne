@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+{% set active_link = 'admin_article_delete' %}
+{% block page_title %}
+    Supprimer l'article
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <main class="no-bg">
+        <div class="pc row">
+            <h1><strong>Supprimer l'article</strong></h1>
+            <br>
+            <form class="form" action="#" role="form" method="post">
+                <p class="alert alert-warning">Etes vous sur de vouloir supprimer ?</p>
+                <div class="form-actions">
+                    <input name = "delete" type="submit" class="btn btn-warning" value="Oui">
+                    <a class="btn btn-default" href="{{ url('admin_articles_manage') }}">Non</a>
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
