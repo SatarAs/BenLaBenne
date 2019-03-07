@@ -1,2 +1,7 @@
 phrase_menu:
     testMessage: K dnešnému dňu máte
+texte_menu:
+  accueil: Domov
+  actualites: Správy
+  notreBut: Naším cieľom
+  contact: Kontaktujte nás
