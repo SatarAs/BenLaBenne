@@ -3,7 +3,10 @@
 namespace App\Controller\Index;
 
 
+use App\Entity\Mail;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\FileLoader;
@@ -90,18 +93,21 @@ class IndexController extends AbstractController
     /**
      * @Route("/newsletter", name="newsletter")
      */
-    public function newsletter(\Swift_Mailer $mailer)
+
+    public function newsletter (Mail $mail)
     {
 
-    $message = (new \Swift_Message('Votre souscription à la Newsletters'))
+    }
+/*
+    $newsletter = (new \Swift_Message('Votre souscription à la Newsletters'))
         ->setFrom('contact@benlabenne.com')
         ->SetTo('test@gmail.com')
         ->SetCc('test2@gmail.com')
         ->SetBody($this->renderView('static/newsletter.html.twig'));
 
-    $mailer->send($message);
+    $mailer->send($newsletter);
     return $this->render('Index/home.html.twig');
-    }
+*/
 
 
     /**
