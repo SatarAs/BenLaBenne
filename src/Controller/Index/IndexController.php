@@ -92,11 +92,18 @@ class IndexController extends AbstractController
     {
         return $this->render('static/newsletter.html.twig', [
             'controller_name' => 'IndexController',
-
         ]);
 
+    } public function mail(\Swift_Mailer $mailer){
+    $message = (new \Swift_Message('Votre souscription à la Newsletters'))
+        ->setFrom('contact@benlabenne.com')
+        ->SetTo('test@gmail.com')
+        ->SetCc('test2@gmail.com')
+        ->SetBody($this->renderView('newsletter.html.twig'));
 
-    }
+    $mailer->send($message);
+    return $this->redirectToRoute('home.html.twig');
+}
 
     /**
      * @Route("/team", name="team")
