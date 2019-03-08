@@ -3,14 +3,15 @@
 namespace App\Controller\Index;
 
 
-use App\Entity\Mail;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+
+use App\Entity\NewsletterSend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Config\Loader\FileLoader;
-use Symfony\Component\HttpFoundation\Response;
+
 
 class IndexController extends AbstractController
 {
@@ -93,11 +94,19 @@ class IndexController extends AbstractController
     /**
      * @Route("/newsletter", name="newsletter")
      */
+    public function Newsletter(){
+        $newsletterSend = New NewsletterSend();
+        $newsletterSend->setNewsletterSend("Inscription");
 
-    public function newsletter (Mail $mail)
-    {
+        $form = $this->createFormBuilder($newsletterSend)
+            ->add('Inscription', EmailType::class)
+            ->getForm();
 
+        return $this->render('footer.html.twig',[
+            'form' => $form->createView()
+        ]);
     }
+
 /*
     $newsletter = (new \Swift_Message('Votre souscription à la Newsletters'))
         ->setFrom('contact@benlabenne.com')
