@@ -27,58 +27,20 @@ class Admin
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity="Article", mappedBy="admin")
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="adminId")
      */
     private $article;
 
     /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="admin")
+     * @ORM\OneToMany(targetEntity="Benne", mappedBy="adminId")
      */
-    private $user;
-
-    /**
-     * @ORM\OneToMany(targetEntity="PhotoBenne", mappedBy="admin")
-     */
-    private $photobenne;
-
-    /**
-     * @return mixed
-     */
-    public function getPhotobenne()
-    {
-        return $this->photobenne;
-    }
-
-    /**
-     * @param mixed $photobenne
-     */
-    public function setPhotobenne($photobenne): void
-    {
-        $this->photobenne = $photobenne;
-    }
-
+    private $benne;
     /**
      * @return mixed
      */
     public function getArticle()
     {
         return $this->article;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user): void
-    {
-        $this->user = $user;
     }
 
     /**

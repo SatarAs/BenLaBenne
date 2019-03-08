@@ -22,25 +22,32 @@ class Benne
     private $jourcollecte;
 
     /**
-     * @ORM\OneToOne(targetEntity="PhotoBenne", mappedBy="benne")
+     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="benne")
+     */
+    private $adminId;
+
+    /**
+     * @ORM\JoinColumn(name="admin_id", referencedColumnName="Benne")
+     * @ORM\OneToMany(targetEntity="PhotoBenne", mappedBy="benneId")
      */
     private $photobenne;
 
     /**
      * @return mixed
      */
-    public function getPhotobenne()
+    public function getAdminId()
     {
-        return $this->photobenne;
+        return $this->adminId;
     }
 
     /**
-     * @param mixed $photobenne
+     * @param mixed $adminId
      */
-    public function setPhotobenne($photobenne): void
+    public function setAdminId($adminId): void
     {
-        $this->photobenne = $photobenne;
+        $this->adminId = $adminId;
     }
+
 
 
     public function getId(): ?int

@@ -11,36 +11,26 @@ class User
 {
     /**
      * @ORM\Id()
+     * @ORM\JoinColumn()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Message", mappedBy="user")
+     * @ORM\Column(type="string", name="facebook_id")
+     */
+    protected $facebookId;
+
+    /**
+     * @ORM\Column(type="string", name="google_id")
+     */
+    protected $googleId;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="userId")
      */
     private $message;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="user")
-     */
-    private $admin;
-
-    /**
-     * @return mixed
-     */
-    public function getAdmin()
-    {
-        return $this->admin;
-    }
-
-    /**
-     * @param mixed $admin
-     */
-    public function setAdmin($admin): void
-    {
-        $this->admin = $admin;
-    }
 
     /**
      * @return mixed
@@ -58,6 +48,37 @@ class User
         $this->message = $message;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+
+    /**
+     * @param mixed $facebookId
+     */
+    public function setFacebookId($facebookId): void
+    {
+        $this->facebookId = $facebookId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGoogleId()
+    {
+        return $this->googleId;
+    }
+
+    /**
+     * @param mixed $googleId
+     */
+    public function setGoogleId($googleId): void
+    {
+        $this->googleId = $googleId;
+    }
 
     public function getId(): ?int
     {
