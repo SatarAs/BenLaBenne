@@ -1,41 +1,82 @@
 {% extends 'layout.html.twig' %}
-{% set active_link = 'admin_article_edit' %}
 {% block page_title %}
-    Modifier l'article
+    Modifier un article
 {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
+
 
 {% block content %}
-    <main class="no-bg">
-        <div class="container">
-            <div class="row">
-                {% include "admin/adminComp/_navigation.html.twig" %}
 
-                <div class="col-xs-offset-1 col-xs-10 col-md-6">
-                    <div class="content-box-header">
-                        <h2 class="text-center panel-title titre-moncompte">Modifier l'article</h2>
+    <div class="container margin-top margin-bottom">
+        <div class="row">
+            <div class="col-sm-12 rounded mx-auto d-block">
+                <h1 style="text-align: center;">Modification d'un article</h1>
+
+                <form>
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <input type="text" style="text-align:center;" class="form-control" id="" placeholder="nom de l'article">
+                        </div>
                     </div>
-                    <div class="content-box-large box-with-header">
-                    {#
-                        {{ form_start(form) }}
-                        {{ form_widget(form) }}
-                        {{ form_end(form) }}
-                    #}
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <input type="text" style="text-align:center;" class="form-control" id="" placeholder="Créateur de l'article">
+                        </div>
+                    </div>
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label"  for="inputGroupFile01">Ajouter image</label>
+                        </div>
+                    </div>
+                    <div class="form-group row margin-top">
+                        <label for="" class="col-sm-6 col-form-label">Date de création</label>
+                        <div class="col-sm-6">
+                            <input type="date" id="start" name="trip-start"
+                                   value="2019-03-07"
+                                   min="2019-01-01" max="2050-12-31">
+                        </div>
+                    </div>
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <div class="form-check" style="text-align:center;">
+                                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                <label class="form-check-label" for="gridCheck1">
+                                    Coche pour rendre l'article visible
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+                    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+
+                    <script type="text/javascript">
+                        tinymce.init({
+                            selector: '#mytextarea'
+                        });
+                    </script>
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <form method="post">
+                                <textarea id="mytextarea">Allez Baudelaire, écrit ton article ici</textarea>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+                <button type="submit"   class="btn btn-default rounded mx-auto d-block">Modifier</button>
+                <button type="submit"   class="btn btn-danger rounded mx-auto d-block">Annuler</button>
             </div>
         </div>
-        </div>
-        </section>
-        </div>
-        </div>
-    </main>
+    </div>
+
+
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
+
+
 {% endblock %}

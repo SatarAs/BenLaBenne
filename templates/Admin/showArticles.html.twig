@@ -1,73 +1,183 @@
 {% extends "layout.html.twig" %}
-{% set active = 'admin_articles_manage' %}
-{% set active_link = 'admin__articles_dispo' %}
-{% block page_title %} Articles Disponibles {% endblock %}
+
+{% block page_title %} Articles {% endblock %}
 
 {% block content %}
-    <main class="no-bg">
-        <div class="container">
-            <div class="row">
-                {# Navigation de l'admin#}
-                {% include "admin/adminComp/_navigation.html.twig" %}
 
-                <div class=" col-xs-12 col-md-8">
-
-                    <div class="content-box-header">
-                        <div class="panel-title titre-moncompte"><p>Vous avez 2 article(s) disponible(s) </p></div>
+    <div class="container-fluid margin-top margin-bottom">
+        <div class="row margin-top margin-bottom">
+            <div class="col-sm-4 margin-top">
+                <ul class="nav animated fadeIn rounded mx-auto d-block">
+                    <div class="list-group">
+                        <a href="{{ url('admin_index') }}" class="list-group-item list-group-item-action"><i class="fas fa-home"></i>
+                            Tableau de bord
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-arrow-alt-circle-right"></i>Demande en attentes</a>
+                        <a href="{{ url('admin_containers') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Benne</a>
+                        <a href="{{ url('admin_articles_manage') }}" class="list-group-item list-group-item-action active"><i class="fas fa-list-ul"></i>Liste Article</a>
+                        <a href="{{ url('admin_account') }}"class="list-group-item list-group-item-action"><i class="far fa-user-circle"></i> Voir Compte</a>
                     </div>
+                </ul>
+            </div>
+            <div class="col-sm-8 margin-top">
+                <div class="card  rounded mx-auto d-block" style="width: 50rem;">
+                    <div class="card-header bg-gradient-light">
+                        <a class="btn btn-success float-right" style="color: black" href="{{ url('admin_article_add') }}" role="button" >
+                            Ajout d'un article
+                        </a>
+
+                        <p class="text-center" style="color: black;"> <h3> Liste articles </h3></p>
+
+                    </div><table class="table text-center">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">AUTEUR</th>
+                            <th scope="col">NOM</th>
+                            <th scope="col">Modifier ou Supprimer</th>
 
 
-                    <div class="oeuvre content-box-large box-with-header">
-                        <div class="row">
-                            <table class="table table-striped">
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="#" role="button" >
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                        Supprimer
+                                    </a>
+                                </td>
+                        </tr>
 
-                                <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Titre de l'article</th>
-                                </tr>
-                                </thead>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="#" role="button" >
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                        Supprimer
+                                    </a>
+                                </td>
 
-                                <tbody>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="#" role="button" >
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                        Supprimer
+                                    </a>
+                                </td>
 
-                                    <tr class="animated fadeIn">
-                                        <td>
-                                            <a href="">
-                                                <img class="img-list img-responsive" src="" alt="">
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="">
-                                                <span class="middle"></span>
-                                            </a>
-                                        </td>
-                                        <td> Titre </td>
-                                        <td ><a class="bouton-modifier"href="{#{{ url('admin_article_edit') }}#}"><i class="glyphicon glyphicon-edit"></i><span class="hidden-xs hidden-sm ">  Modifier</span></a></td>
-                                    </tr>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="#" role="button" >
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                        Supprimer
+                                    </a>
+                                </td>
 
-                                </tbody>
-                            </table>
-                            <div class="row">
-                                <div class="pagination">
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td><a class="btn btn-success btn-sm" href="#" role="button" >
+                                    Modifier
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                    Supprimer
+                                </a>
+                            </td>
 
-                                    {#{% for p in 1..nbpages %}
-                                        <a {% if p== current %} class="current" {%endif%}
-                                                href="{{ url('admin_articles_manage', {p:p}) }}">{{ p }}</a>
-                                    {% endfor  %}
-                                    #}
-                                </div> <!-- /.pagination -->
-                            </div> <!-- /.row -->
-                        </div>
-                    </div>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td><a class="btn btn-success btn-sm" href="#" role="button" >
+                                    Modifier
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                    Supprimer
+                                </a>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        </div>
-        </section>
-        </div>
-        </div>
-    </main>
+    </div>
+
+    <!-- Button trigger modal -->
 
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalCenterTitle">Ajouter une benne</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Position</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Longitude et latitude</span>
+                            </div>
+                            <input type="text" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="Last name" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Département</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Id</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success rounded mx-auto d-block">Ajouter</button>
+                    <button type="button" class="btn btn-danger rounded mx-auto d-block" data-dismiss="modal">Annuler</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 {% endblock %}
