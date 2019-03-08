@@ -5,39 +5,40 @@
 
 {% block content %}
 
-    <main class="no-bg">
-        <div class="container">
-            <div class="row">
 
-                {# Navigation de l'admin#}
-                {% include "admin/adminComp/_navigation.html.twig" %}
-
-                <!-- Contenu du dashboard -->
-                <div class="col-xs-12 col-md-8">
-
-                    <div class="content-box-header">
-                        <div class="panel-title titre-moncompte"><p>Bonjour,</p></div>
-                    </div>
-
-
-                    <div class="content-box-large box-with-header">
-                        <p>{{ 'phrase_menu.testMessage'|trans }} :</p>
-                        <ul class="recap animated fadeIn">
-
-                            <li><a href=""><i class="glyphicon glyphicon-record vert"></i><p> demandes en attente</p></a></li>
-                            <li><a href=""><i class="glyphicon glyphicon-menu-hamburger vert"></i><p> &oelig;uvres disponibles</p></a></li>
-                            <li><a href=""><i class="glyphicon glyphicon-menu-hamburger orange"></i><p> &oelig;uvres indisponibles</p></a></li>
-                            <li><a href=""><i class="glyphicon glyphicon-user bleu"></i><p> clients enregistr&#233;s</p></a></li>
-
-                        </ul>
-                    </div>
+<div class="container-fluid margin-top margin-bottom">
+    <div class="row margin-top margin-bottom">
+        <div class="col-sm-4 margin-top">
+            <ul class="nav animated fadeIn rounded mx-auto d-block">
+                <div class="list-group">
+                    <a href="{{ url('admin_index') }}" class="list-group-item list-group-item-action active text-white"><i class="fas fa-home"></i>
+                        Tableau de bord
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-arrow-alt-circle-right"></i>Demande en attentes</a>
+                    <a href="{{ url('admin_containers') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Benne</a>
+                    <a href="{{ url('admin_articles_manage') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Article</a>
+                    <a href="{{ url('admin_account') }}"class="list-group-item list-group-item-action"><i class="far fa-user-circle"></i> Voir Compte</a>
                 </div>
+            </ul>
+            </div>
+        <div class="col-sm-8 margin-top">
+            <div class="card  rounded mx-auto d-block" style="width: 50rem;">
+                <div class="card-header bg-gradient-light">
+                    <p style="color: black;"> <h3> Bonjour, </h3></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">3 Articles en attente</li>
+                    <li class="list-group-item">39 bennes a ajouter</li>
+                    <li class="list-group-item">cdjs</li>
+                    <li class="list-group-item">drfg</li>
+                </ul>
             </div>
         </div>
-        </div>
-        </section>
-        </div> <!-- /.row -->
-        </div>
-    </main>
+    </div>
+</div>
+
+
 
 {% endblock %}
+
+

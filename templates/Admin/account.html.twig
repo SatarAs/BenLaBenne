@@ -1,8 +1,46 @@
 {% extends "layout.html.twig" %}
 
-{% block page_title %} Admin {% endblock %}
+{% block page_title %} Compte {% endblock %}
 
 {% block content %}
 
-    <h1>Admin Account</h1>
+
+    <div class="container-fluid margin-top margin-bottom">
+        <div class="row margin-top margin-bottom">
+            <div class="col-sm-4 margin-top">
+                <ul class="nav animated fadeIn rounded mx-auto d-block">
+                    <div class="list-group">
+                        <a href="{{ url('admin_index') }}" class="list-group-item list-group-item-action"><i class="fas fa-home"></i>
+                            Tableau de bord
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-arrow-alt-circle-right"></i>Demande en attentes</a>
+                        <a href="{{ url('admin_containers') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Benne</a>
+                        <a href="{{ url('admin_articles_manage') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Article</a>
+                        <a href="{{ url('admin_account') }}"class="list-group-item list-group-item-action active"><i class="far fa-user-circle"></i> Voir Compte</a>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-sm-8 margin-top" style="margin-bottom: 10%">
+                <div class="card  rounded mx-auto d-block" style="width: 50rem;">
+                    <div class="card-header bg-gradient-light">
+                        <p style="color: black;"> <h3 class="text-center"> Paramètres </h3></p>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Nom et Prénom</span>
+                        </div>
+                        <input type="text" class="form-control">
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">E-mail</span>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
