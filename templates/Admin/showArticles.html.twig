@@ -22,18 +22,20 @@
             <div class="col-sm-8 margin-top">
                 <div class="card  rounded mx-auto d-block" style="width: 50rem;">
                     <div class="card-header bg-gradient-light">
-                        <a class="btn btn-success float-right" href="{{ url('admin_article_add') }}" role="button" >
+                        <a class="btn btn-success float-right" style="color: black" href="{{ url('admin_article_add') }}" role="button" >
                             Ajout d'un article
                         </a>
 
                         <p class="text-center" style="color: black;"> <h3> Liste articles </h3></p>
 
-                    </div>
-                    <table class="table table-striped text-center">
+                    </div><table class="table text-center">
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Titre de l'article</th>
+                            <th scope="col">AUTEUR</th>
+                            <th scope="col">NOM</th>
+                            <th scope="col">Modifier ou Supprimer</th>
+
 
                         </tr>
                         </thead>
@@ -41,26 +43,83 @@
                         <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>
-
+                            <td>Otto</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="#" role="button" >
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                        Supprimer
+                                    </a>
+                                </td>
                         </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
 
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-
-                        </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Jacob</td>
+                            <td>Thornton</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="#" role="button" >
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                        Supprimer
+                                    </a>
+                                </td>
 
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td>Larry</td>
+                            <td>the Bird</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="#" role="button" >
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                        Supprimer
+                                    </a>
+                                </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="#" role="button" >
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                        Supprimer
+                                    </a>
+                                </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td><a class="btn btn-success btn-sm" href="#" role="button" >
+                                    Modifier
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                    Supprimer
+                                </a>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td><a class="btn btn-success btn-sm" href="#" role="button" >
+                                    Modifier
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#" role="button" >
+                                    Supprimer
+                                </a>
+                            </td>
 
                         </tr>
                         </tbody>
