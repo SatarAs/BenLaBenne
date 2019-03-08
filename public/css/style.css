@@ -14,10 +14,13 @@ nav {
     background-color: #3c8564;
 }
 footer {
+    clear: both;
     background-color: #3c8564;
     position: relative;
-    width: 100%;
-    bottom: 0;
+    /* on le colle en bas */
+    width:100%;
+    height: 100px;
+    z-index: -99999;
 }
 #logo {
     background-color: white;
@@ -328,3 +331,22 @@ body > nav{
     color: #3c8564;
     background-color: white;
 }
+
+
+
+/****************************************admin**********************************************/
+#boutoncolor > a {
+    color: white;
+}
+#boutoncolor > a:hover {
+    color: #3c8564!important;
+}
+
+body > div.container.margin-top > div > div.col-sm-4.margin-top > ul > div {
+    width: 50%;
+}
+
+body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div > a > i {
+    padding-right: 10px;
+}
+
