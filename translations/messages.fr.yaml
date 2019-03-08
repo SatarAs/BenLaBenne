@@ -1,2 +1,7 @@
 phrase_menu:
     testMessage: À ce jour, vous avez
+texte_menu:
+    accueil: Accueil
+    actualites: Actualités
+    notreBut: Notre but
+    contact: Nous contacter
