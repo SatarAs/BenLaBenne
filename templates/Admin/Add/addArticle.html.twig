@@ -6,7 +6,7 @@
                   enctype="multipart/form-data">
                 <h3>Ajouter un Article</h3>
 
-                {# Titre de l'Article #}
+
                 <div class="form-group">
                     <label class="col-md-2 control-label">Titre de l'Article</label>
                     <div class="col-md-8">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
 
-                {# Catégorie de l'Article #}
+
                 <div class="form-group">
                     <label class="col-md-2 control-label">Catégorie</label>
                     <div class="col-md-8">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-                {# Contenu de l'Article #}
+
                 <div class="form-group">
                     <label class="col-md-2 control-label">Description</label>
                     <div class="col-md-8">
@@ -30,31 +30,6 @@
                     </div>
                 </div>
 
-                {# Featured Image (File) #}
-                <div class="form-group">
-                    <label class="col-md-2 control-label">
-                        Featured Image <em>(Image à la Une)</em>
-                    </label>
-                    <div class="col-md-8">
-                        {{ form_row(form.image) }}
-                    </div>
-                </div>
-
-                {# Options (SPECIAL et SPOTLIGHT) #}
-                <div class="form-group">
-                    <label class="col-md-2 control-label">Options</label>
-                    <div class="col-md-8">
-                        <div class="checkbox">
-
-                            <label>
-                                {{ form_row(form.spotlight) }}
-                                Spotlight
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                {# Submit #}
                 <div class="form-group">
                     <div class="col-xs-7 col-xs-offset-3">
                         {{ form_end(form) }}
