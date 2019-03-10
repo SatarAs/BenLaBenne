@@ -7,9 +7,6 @@ namespace App\Controller\Index;
 use App\Entity\NewsletterSend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -96,10 +93,10 @@ class IndexController extends AbstractController
      */
     public function Newsletter(){
         $newsletterSend = New NewsletterSend();
-        $newsletterSend->setNewsletterSend("Inscription");
+        $newsletterSend->setNewsletterSend("Newsletter");
 
         $form = $this->createFormBuilder($newsletterSend)
-            ->add('Inscription', EmailType::class)
+            ->add('Newsletter', EmailType::class)
             ->getForm();
 
         return $this->render('footer.html.twig',[

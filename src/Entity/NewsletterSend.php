@@ -6,6 +6,8 @@ namespace App\Entity;
 
 class NewsletterSend
 {
+    public $NewsletterSend;
+
     /**
      * @return mixed
      */
@@ -21,5 +23,4 @@ class NewsletterSend
     {
         $this->NewsletterSend = $NewsletterSend;
     }
-    public $NewsletterSend;
 }
