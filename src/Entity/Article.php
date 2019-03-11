@@ -38,24 +38,48 @@ class Article
 
     /**
      * @ORM\ManyToOne(targetEntity="Admin", inversedBy="article")
+     * @ORM\JoinColumn(name="admin_id", referencedColumnName="id")
      */
-    private $admin;
+    private $adminId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Message", inversedBy="article")
+     * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
+     */
+    private $messageId;
 
     /**
      * @return mixed
      */
-    public function getAdmin()
+    public function getAdminId()
     {
-        return $this->admin;
+        return $this->adminId;
     }
 
     /**
-     * @param mixed $admin
+     * @param mixed $adminId
      */
-    public function setAdmin($admin): void
+    public function setAdminId($adminId): void
     {
-        $this->admin = $admin;
+        $this->adminId = $adminId;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMessageId()
+    {
+        return $this->messageId;
+    }
+
+    /**
+     * @param mixed $messageId
+     */
+    public function setMessageId($messageId): void
+    {
+        $this->messageId = $messageId;
+    }
+
 
 
     public function getId(): ?int

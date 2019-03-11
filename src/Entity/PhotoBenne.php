@@ -32,47 +32,25 @@ class PhotoBenne
     private $altitude;
 
     /**
-     * @ORM\JoinColumn()
-     * @ORM\OneToOne(targetEntity="Benne", inversedBy="photobenne")
+     * @ORM\ManyToOne(targetEntity="Benne", inversedBy="photobenne")
+     * @ORM\JoinColumn(name="benne_id", referencedColumnName="id")
      */
-    private $benne;
+    private $benneId;
 
     /**
      * @return mixed
      */
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="photobenne")
-     */
-    private $admin;
-
-    /**
-     * @return mixed
-     */
-    public function getAdmin()
+    public function getBenneId()
     {
-        return $this->admin;
+        return $this->benneId;
     }
 
     /**
-     * @param mixed $admin
+     * @param mixed $benneId
      */
-    public function setAdmin($admin): void
+    public function setBenneId($benneId): void
     {
-        $this->admin = $admin;
-    }
-
-    public function getBenne()
-    {
-        return $this->benne;
-    }
-
-    /**
-     * @param mixed $benne
-     */
-    public function setBenne($benne): void
-    {
-        $this->benne = $benne;
+        $this->benneId = $benneId;
     }
 
 

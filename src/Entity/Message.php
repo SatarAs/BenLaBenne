@@ -18,24 +18,68 @@ class Message
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="message")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $user;
+    private $userId;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $commentaire;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="messageId")
+     */
+    private $article;
 
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getArticle()
     {
-        return $this->user;
+        return $this->article;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $article
      */
-    public function setUser($user): void
+    public function setArticle($article): void
     {
-        $this->user = $user;
+        $this->article = $article;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * @param mixed $commentaire
+     */
+    public function setCommentaire($commentaire): void
+    {
+        $this->commentaire = $commentaire;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param mixed $userId
+     */
+    public function setUserId($userId): void
+    {
+        $this->userId = $userId;
+    }
+
 
     public function getId(): ?int
     {
