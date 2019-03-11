@@ -17,7 +17,7 @@ class ArticleController extends AbstractController
     /**
      * @param Request $request
      * @return mixed
-     * @Route("/admin/articles/add" name="admin_articles_add")
+     * @Route("/admin/articles/add", name="admin_articles_add")
      */
     public function Article(Request $request) {
 
@@ -42,13 +42,6 @@ class ArticleController extends AbstractController
                 ]
             ])
 
-            ->add('image', FileType::class, [
-                'required'      => true,
-                'label'         => false,
-                'attr'          => [
-                    'class'         =>  'dropify',
-                ]
-            ])
 
             ->add('submit', SubmitType::class, [
                 'label' => 'Publier',
@@ -59,7 +52,8 @@ class ArticleController extends AbstractController
 
             ->getForm();
         $form->handlerequest($request);
-        return $this->render('Article/addArticle.html.twig', [
+
+        return $this->render('Admin/Add/addArticle.html.twig', [
             'form' => $form->createView()
         ]);
     }
