@@ -18,10 +18,10 @@
                             accessToken: 'pk.eyJ1IjoiMTY5NTciLCJhIjoiY2pzcHhodDB5MHF4YjQzbzA3dHByb3V2ZiJ9.CiBSDPowlgXwoiRjIlhTKg'
                         }).addTo(map);
 
-                        // create custom icon
+                        // ajout de l'image : logo sur le marker
                         var icon = L.icon({
                             iconUrl: 'img/logoP4.png',
-                            iconSize: [45, 40], // size of the icon
+                            iconSize: [45, 40], // La taille de l'image
                         });
 
                         geojson = L.geoJson(Verre, {
@@ -30,20 +30,15 @@
                             },
                             pointToLayer: function (feature, latlng) {
                                 var marker =  L.marker(latlng, {icon: icon});
-                                marker.bindPopup('<b><u>Description de la benne</u></b><br>'
-                                    + '<b>Commune:</b>'+ feature.properties.commune + '<br>'
-                                    + '<b>Adresse : </b>' + feature.properties.voie + '<br>'
-                                    + '<b>Code commune : </b>' + feature.properties.code_postal + '<br>'
+                                marker.bindPopup('<b><strong style="size: 30px">Description</strong></b><br>'
+                                    + '<b><u>Commune</u> : </b>'+ feature.properties.commune + '<br>'
+                                    + '<b><u>Adresse</u> : </b>' + feature.properties.voie + '<br>'
+                                    + '<b><u>Code commune</u> : </b>' + feature.properties.code_postal + '<br>'
                                 );
                                 return marker ;
-
                             }
                         }).addTo(map);
-
-
                     }
-
-
                 </script>
 
                 <div id="map" class="rounded mx-auto d-block text-center" ></div>
