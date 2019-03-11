@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -21,8 +22,8 @@ class ArticleController extends AbstractController
      */
     public function Article(Request $request) {
 
-        $article = new Article();
-        $form = $this->createFormbuilder($article)
+
+        $form = $this->createFormbuilder()
 
             ->add('titre', TextType::class, [
                 'required'      => true,
@@ -30,6 +31,14 @@ class ArticleController extends AbstractController
                 'attr'          => [
                     'class'         =>  'form-control',
                     'placeholder'   =>  'Titre de l\'Article...'
+                ]
+            ])
+            ->add('chapo', TextareaType::class, [
+                'required'      => true,
+                'label'         => false,
+                'attr'          => [
+                    'class'         =>  'form-control',
+                    'placeholder'   =>  'Description de l\'Article...'
                 ]
             ])
 
@@ -43,6 +52,7 @@ class ArticleController extends AbstractController
             ])
 
 
+
             ->add('submit', SubmitType::class, [
                 'label' => 'Publier',
                 'attr'      => [
@@ -52,6 +62,27 @@ class ArticleController extends AbstractController
 
             ->getForm();
         $form->handlerequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $data=$form->getData();
+            var_dump($data);
+            $titre = $data['titre'];
+            $chapo = $data['chapo'];
+            $contenu = $data['contenu'];
+            $article = new Article();
+
+            $article->setTitre($titre);
+            $article->setChapo($chapo);
+            $article->setContenu($contenu);
+            $article->setAdminId(1);
+            $article->setMessageId(1);
+            $article->setCreatedAt(new \DateTime('now'));
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+            return new Response('Article ajouté, merci !');
+        }
+
 
         return $this->render('Admin/Add/addArticle.html.twig', [
             'form' => $form->createView()
