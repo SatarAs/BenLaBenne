@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\dailySpace;
+namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class ArticleController extends AbstractController
 {
     /**
@@ -18,7 +19,7 @@ class ArticleController extends AbstractController
      * @return mixed
      * @Route("/admin/articles/add" name="admin_articles_add")
      */
-    public function addarticle(Request $request) {
+    public function Article(Request $request) {
 
         $article = new Article();
         $form = $this->createFormbuilder($article)
@@ -40,6 +41,7 @@ class ArticleController extends AbstractController
                     'placeholder'   =>  'Contenu de l\'Article...'
                 ]
             ])
+
             ->add('image', FileType::class, [
                 'required'      => true,
                 'label'         => false,
@@ -54,6 +56,7 @@ class ArticleController extends AbstractController
                     'class' => 'btn btn-primary'
                 ]
             ])
+
             ->getForm();
         $form->handlerequest($request);
         return $this->render('Article/addArticle.html.twig', [
