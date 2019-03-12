@@ -7,37 +7,59 @@
             <div class="col-sm-1" style="text-align: center"></div>
             <div class="col-sm-8" style="text-align: center">
                 <h5 class="margin-bottom"> Utilisez la map ci-dessous pour retrouver les bennes de Lyon</h5>
+
                 <script>
                     window.onload = function () {
                         console.log('Page chargée ');
 
-                        var map = L.map('map').setView([45.764043, 4.835659], 11);
+                        var map = L.map('map').setView([45.75 , 4.85], 12);
                         var titleStreets = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                             maxZoom: 18,
                             id: 'mapbox.streets',
                             accessToken: 'pk.eyJ1IjoiMTY5NTciLCJhIjoiY2pzcHhodDB5MHF4YjQzbzA3dHByb3V2ZiJ9.CiBSDPowlgXwoiRjIlhTKg'
                         }).addTo(map);
 
+                        // ajout de l'image : logo sur le marker
+                        var icon = L.icon({
+                            iconUrl: 'img/logoP4.png',
+                            iconSize: [45, 40], // Taille de l'icon
+                        });
+
                         geojson = L.geoJson(Verre, {
                             style: function (feature) {
                                 return feature.properties && feature.properties.style;
                             },
                             pointToLayer: function (feature, latlng) {
-                                var marker =  L.marker(latlng);
-                                marker.bindPopup('<b><u>Description de la benne</u></b><br>'
-                                    + '<b>Commune:</b>'+ feature.properties.commune + '<br>'
-                                    + '<b>Adresse : </b>' + feature.properties.adresse + '<br>'
-                                    + '<b>Code commune : </b>' + feature.properties.code_com + '<br>'
+                                var marker =  L.marker(latlng, {icon: icon});
+                                marker.bindPopup('<b><strong style="size: 30px">Description</strong></b><br>'
+                                    + '<b><u>Commune</u> : </b>'+ feature.properties.commune + '<br>'
+                                    + '<b><u>Adresse</u> : </b>' + feature.properties.voie + '<br>'
+                                    + '<b><u>Code commune</u> : </b>' + feature.properties.code_postal + '<br>'
                                 );
                                 return marker ;
-
                             }
                         }).addTo(map);
+                        L.Control.Watermark = L.Control.extend({
+                            onAdd: function(map) {
+                                var img = L.DomUtil.create('img');
 
+                                img.src = 'img/logoP4.png';
+                                img.style.width = '100px';
 
+                                return img;
+                            },
+
+                            onRemove: function(map) {
+                                // Nothing to do here
+                            }
+                        });
+
+                        L.control.watermark = function(opts) {
+                            return new L.Control.Watermark(opts);
+                        }
+
+                        L.control.watermark({ position: 'bottomleft' }).addTo(map);
                     }
-
-
                 </script>
 
                 <div id="map" class="rounded mx-auto d-block text-center" ></div>
