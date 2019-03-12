@@ -113,18 +113,18 @@ class IndexController extends AbstractController
             $newsletterSend = $data['Newsletter'];
 
             $message = (new \Swift_Message('Rappel évenement'))
+
                 ->setFrom('contact@gmail.com')
                 ->setTo($newsletterSend)
                 ->setCc('test2@gmail.com')
-                ->setBody($this->renderView('static/newsletter.html.twig'));
+                ->setBody('Vous êtes bien inscrit à la newsletter de BenLaBenne, merci !');
             $mailer->send($message);
-
             return new Response('Mail envoyé');
 
 
         }
 
-        return $this->render('components/footer.html.twig', [
+        return $this->render('index/home.html.twig', [
             'form' => $form->createView()
         ]);
 
