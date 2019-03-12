@@ -6,14 +6,22 @@
         <div class="row">
             <div class="col-sm-9" style="text-align: center">
     {% for key in articles %}
-                <div class="media margin-top">
-                    <img src="..." class="mr-3" alt="...">
-                    <div class="media-body">
-                        <h4 class="mt-0">{{ key.titre }}</h4>
-                        <h5 class="mt-0">{{ key.chapo }}</h5>
-                        <a href="{{ path('news_article', {'id': key.id}) }}" class="redirect-article">Lire</a>
-                    </div>
+        <div class="card mb-3" style="max-width: 700px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="https://www.crrf-fcrr.ca/images/REDEV_PHOTOS/Resources_Header/newspapers_xl_28444782.jpg" class="card-img" alt="...">
                 </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ key.titre }}</h4>
+                        <h5 class="mt-0">{{ key.chapo }}</h5>
+
+                    </div>
+                    <a href="{{ path('news_article', {'id': key.id}) }}" class="redirect-article btn btn-success">Lire plus</a>
+                </div>
+            </div>
+        </div>
+
     {% endfor %}
 
             </div>
