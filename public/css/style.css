@@ -17,7 +17,6 @@ footer {
     clear: both;
     background-color: #3c8564;
     position: relative;
-    /* on le colle en bas */
     width:100%;
     height: 100px;
 
@@ -357,4 +356,12 @@ body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div
     size: 20px;
     text-align: center;
 
+}
+
+#bgSchema {
+    background-image: url("/img/schéma.png");
+    background-size: cover;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
