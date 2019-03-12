@@ -35,11 +35,11 @@ class ArticleController extends AbstractController
                     'placeholder' => 'Titre de l\'Article...'
                 ]
             ])
-
+/*
             ->add('Admin', EntityType::class, [
                 'class'=>Admin::class
             ])
-
+*/
             ->add('chapo', TextareaType::class, [
                 'required' => true,
                 'label' => false,
@@ -76,7 +76,7 @@ class ArticleController extends AbstractController
             $article->setTitre($titre);
             $article->setChapo($chapo);
             $article->setContenu($contenu);
-            $article->setCreatedAt(new \DateTime('now'));
+       //     $article->setCreatedAt(new \DateTime('now'));
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
