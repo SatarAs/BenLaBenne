@@ -7,6 +7,7 @@
             <div class="col-sm-1" style="text-align: center"></div>
             <div class="col-sm-8" style="text-align: center">
                 <h5 class="margin-bottom"> Utilisez la map ci-dessous pour retrouver les bennes de Lyon</h5>
+
                 <script>
                     window.onload = function () {
                         console.log('Page chargée ');
@@ -21,7 +22,7 @@
                         // ajout de l'image : logo sur le marker
                         var icon = L.icon({
                             iconUrl: 'img/logoP4.png',
-                            iconSize: [45, 40], // La taille de l'image
+                            iconSize: [45, 40], // Taille de l'icon
                         });
 
                         geojson = L.geoJson(Verre, {
@@ -38,6 +39,26 @@
                                 return marker ;
                             }
                         }).addTo(map);
+                        L.Control.Watermark = L.Control.extend({
+                            onAdd: function(map) {
+                                var img = L.DomUtil.create('img');
+
+                                img.src = 'img/logoP4.png';
+                                img.style.width = '100px';
+
+                                return img;
+                            },
+
+                            onRemove: function(map) {
+                                // Nothing to do here
+                            }
+                        });
+
+                        L.control.watermark = function(opts) {
+                            return new L.Control.Watermark(opts);
+                        }
+
+                        L.control.watermark({ position: 'bottomleft' }).addTo(map);
                     }
                 </script>
 
