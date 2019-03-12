@@ -7,6 +7,9 @@ namespace App\Controller\Index;
 use App\Entity\NewsletterSend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -89,31 +92,45 @@ class IndexController extends AbstractController
     }
 
     /**
+     * @param \Swift_Mailer $mailer
      * @Route("/newsletter", name="newsletter")
      */
-    public function Newsletter(){
-        $newsletterSend = New NewsletterSend();
-        $newsletterSend->setNewsletterSend("Newsletter");
+    public function Newsletter(\Swift_Mailer $mailer,Request $request)
+    {
 
-        $form = $this->createFormBuilder($newsletterSend)
+        $form = $this->createFormBuilder()
             ->add('Newsletter', EmailType::class)
+            ->add('envoyé', SubmitType::class)
             ->getForm();
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
 
-        return $this->render('footer.html.twig',[
+            $data = $form->getData();
+
+            $newsletterSend = $data['Newsletter'];
+
+        $message = (new \Swift_Message('Rappel évenement'))
+            ->setFrom('contact@gmail.com')
+            ->setTo($newsletterSend)
+            ->setCc('test2@gmail.com')
+            ->setBody($this->renderView('static/newsletter.html.twig'));
+        $mailer->send($message);
+
+            return new Response('Mail envoyé');
+
+
+        }
+        return $this->render('components/footer.html.twig', [
             'form' => $form->createView()
         ]);
-    }
 
+        }
 /*
-    $newsletter = (new \Swift_Message('Votre souscription à la Newsletters'))
-        ->setFrom('contact@benlabenne.com')
-        ->SetTo('test@gmail.com')
-        ->SetCc('test2@gmail.com')
-        ->SetBody($this->renderView('static/newsletter.html.twig'));
 
-    $mailer->send($newsletter);
-    return $this->render('Index/home.html.twig');
+    }
 */
+
+
 
 
     /**
