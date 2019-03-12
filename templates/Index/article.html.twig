@@ -5,16 +5,15 @@
     <div class="container margin-top">
         <div class="row">
             <div class="col-sm-9" style="text-align: center">
-    {% for key in articles %}
-                <div class="media margin-top">
-                    <img src="..." class="mr-3" alt="...">
-                    <div class="media-body">
-                        <h4 class="mt-0">{{ key.titre }}</h4>
-                        <h5 class="mt-0">{{ key.chapo }}</h5>
-                        <a href="{{ path('news_article', {'id': key.id}) }}" class="redirect-article">Lire</a>
+                    <div class="media margin-top">
+                        <img src="..." class="mr-3" alt="...">
+                        <div class="media-body">
+                            <h4 class="mt-0">{{ article.titre }}</h4>
+                            <h5 class="mt-0">{{ article.chapo }}</h5>
+                            <p class="mt-0 article-content">{{ article.contenu }}</p>
+                        </div>
                     </div>
-                </div>
-    {% endfor %}
+                <a href="{{ path('news') }}">Retour aux articles</a>
 
             </div>
 
