@@ -3,7 +3,6 @@
 namespace App\Controller\Index;
 
 
-
 use App\Entity\NewsletterSend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -56,6 +55,7 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+
     /**
      * @Route("/mentionLegales", name="mentionLegales")
      */
@@ -92,45 +92,47 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @param \Swift_Mailer $mailer
      * @Route("/newsletter", name="newsletter")
+     * @param \Swift_Mailer $mailer
      */
-    public function Newsletter(\Swift_Mailer $mailer,Request $request)
+    public function Newsletter(\Swift_Mailer $mailer, Request $request)
     {
 
         $form = $this->createFormBuilder()
             ->add('Newsletter', EmailType::class)
-            ->add('envoyé', SubmitType::class)
+            ->add('envoyer', SubmitType::class)
             ->getForm();
+
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
 
             $data = $form->getData();
 
             $newsletterSend = $data['Newsletter'];
 
-        $message = (new \Swift_Message('Rappel évenement'))
-            ->setFrom('contact@gmail.com')
-            ->setTo($newsletterSend)
-            ->setCc('test2@gmail.com')
-            ->setBody($this->renderView('static/newsletter.html.twig'));
-        $mailer->send($message);
+            $message = (new \Swift_Message('Rappel évenement'))
+                ->setFrom('contact@gmail.com')
+                ->setTo($newsletterSend)
+                ->setCc('test2@gmail.com')
+                ->setBody($this->renderView('static/newsletter.html.twig'));
+            $mailer->send($message);
 
             return new Response('Mail envoyé');
 
 
         }
+
         return $this->render('components/footer.html.twig', [
             'form' => $form->createView()
         ]);
 
-        }
-/*
-
     }
-*/
+    /*
 
-
+        }
+    */
 
 
     /**
