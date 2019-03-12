@@ -16,6 +16,7 @@ class Article
      */
     private $id;
 
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -31,61 +32,8 @@ class Article
      */
     private $contenu;
 
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $created_at;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="article")
-     * @ORM\JoinColumn(name="admin_id", referencedColumnName="id")
-     */
-    private $adminId;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Message", inversedBy="article")
-     * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
-     */
-    private $messageId;
-
-    /**
-     * @return mixed
-     */
-    public function getAdminId()
-    {
-        return $this->adminId;
-    }
-
-    /**
-     * @param mixed $adminId
-     */
-    public function setAdminId($adminId): void
-    {
-        $this->adminId = $adminId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMessageId()
-    {
-        return $this->messageId;
-    }
-
-    /**
-     * @param mixed $messageId
-     */
-    public function setMessageId($messageId): void
-    {
-        $this->messageId = $messageId;
-    }
 
 
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getTitre(): ?string
     {
@@ -123,15 +71,19 @@ class Article
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
-        return $this->created_at;
+        return $this->id;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
     {
-        $this->created_at = $created_at;
-
-        return $this;
+        $this->id = $id;
     }
 }
