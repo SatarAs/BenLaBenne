@@ -4408,7 +4408,7 @@ var Verre ={
         ]
       }
     },
-    {
+    /* {
       "type": "Feature",
       "properties": {
         "gml_id": "gic_collecte.gicsiloverre.215",
@@ -55303,6 +55303,6 @@ var Verre ={
           45.767265999057138
         ]
       }
-    }
+    }*/
   ]
 }

@@ -296,9 +296,28 @@ body > nav{
 }
 
 
+/* Let's get this party started */
 ::-webkit-scrollbar {
-    display: none;
+    width: 8px;
 }
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+
+    border-radius: 10px;
+    background: rgb(60, 133, 100);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent;
+}
+
 
 
 /***************************************************** MAPS ************************************************/
@@ -365,3 +384,5 @@ body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div
     background-repeat: no-repeat;
     background-position: center;
 }
+
+

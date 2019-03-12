@@ -1,34 +1,84 @@
+
+
 {% extends 'layout.html.twig' %}
+{% block page_title %}
+    Ajouter un article
+{% endblock %}
+
+
+
 {% block content %}
-    <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
-            <form class="form-horizontal" method="POST"
-                  enctype="multipart/form-data">
-                <h3>Ajouter un Article</h3>
 
+    <div class="container margin-top margin-bottom">
+        <div class="row">
+            <div class="col-sm-12 rounded mx-auto d-block">
+                <h1 style="text-align: center;">Ajout d'un article</h1>
 
-                <div class="form-group">
-                    <label class="col-md-2 control-label">Titre de l'Article</label>
-                    <div class="col-md-8">
-                        {{ form_row(form.titre) }}
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <input type="text" style="text-align:center;" class="form-control" id="" placeholder="nom de l'article">
+                            {{ form_row(form.titre) }}
+                        </div>
                     </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">Description</label>
-                    <div class="col-md-8">
-                        {{ form_row(form.contenu) }}
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <input type="text" style="text-align:center;" class="form-control" id="" placeholder="Créateur de l'article">
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-7 col-xs-offset-3">
-                        {{ form_end(form) }}
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label"  for="inputGroupFile01">Ajouter image</label>
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group row margin-top">
+                        <label for="" class="col-sm-6 col-form-label">Date de création</label>
+                        <div class="col-sm-6">
+                            <input type="date" id="start" name="trip-start"
+                                   value="2019-03-07"
+                                   min="2019-01-01" max="2050-12-31">
+                        </div>
+                    </div>
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <div class="form-check" style="text-align:center;">
+                                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                <label class="form-check-label" for="gridCheck1">
+                                    Coche pour rendre l'article visible
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
-            </form>
+                    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+
+                    <script type="text/javascript">
+                        tinymce.init({
+                            selector: '#mytextarea'
+                        });
+                    </script>
+                    <div class="form-group row margin-top">
+                        <div class="col-sm-12">
+                            <form method="post">
+                                <textarea id="mytextarea">Allez Baudelaire, écrit ton article ici</textarea>
+                                {{ form_row(form.contenu) }}
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+                <button type="submit"   class="btn btn-default rounded mx-auto d-block">Ajouter</button>
+                <button type="submit"   class="btn btn-danger rounded mx-auto d-block">Annuler</button>
+            </div>
         </div>
     </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
 {% endblock %}
