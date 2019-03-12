@@ -13,9 +13,9 @@
                             Tableau de bord
                         </a>
                         <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-arrow-alt-circle-right"></i>Demande en attentes</a>
-                        <a href="{{ url('admin_containers') }}" class="list-group-item list-group-item-action active"><i class="fas fa-list-ul"></i>Liste Benne</a>
-                        <a href="{{ url('admin_articles_manage') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Article</a>
-                        <a href="{{ url('admin_account') }}"class="list-group-item list-group-item-action"><i class="far fa-user-circle"></i> Voir Compte</a>
+                        <a href="" class="list-group-item list-group-item-action active"><i class="fas fa-list-ul"></i>Liste Benne</a>
+                        <a href="" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Article</a>
+                        <a href=""class="list-group-item list-group-item-action"><i class="far fa-user-circle"></i> Voir Compte</a>
                     </div>
                 </ul>
             </div>
@@ -32,43 +32,30 @@
                     <table class="table table-striped text-center">
                         <thead>
                         <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Position</th>
-                            <th scope="col">Département</th>
-                            <th scope="col">Id</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Commune</th>
+                            <th scope="col">Code Postal</th>
+                            <th scope="col">Voie</th>
+                            <th scope="col">Numéro</th>
+                            <th scope="col">Position X</th>
+                            <th scope="col">Position Y</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        {% for feature in features %}
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{ feature.properties.commune}}
+                                <td>{{ feature.properties.code_postal }}</td>
+                                <td>{{ feature.properties.voie }}</td>
+                                {# if feature.properties.numerodansvoie #}
+                                <td>{{ numerodansvoie }}</td>
+                                {# endif #}
+                                <td>{{ coordinatesX }}</td>
+                                <td>{{ coordinatesY }}</td>
+
+                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
