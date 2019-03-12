@@ -17,7 +17,7 @@
         window.onload = function () {
             console.log('Page chargée ');
 
-            var map = L.map('map').setView([45.764043, 4.835659], 11);
+            var map = L.map('map').setView([45.75 , 4.85], 20);
             var titleStreets = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                 maxZoom: 18,
                 id: 'mapbox.streets',
@@ -32,7 +32,7 @@
                     var marker =  L.marker(latlng);
                     marker.bindPopup('<b><u>Description de la benne</u></b><br>'
                         + '<b>Commune:</b>'+ feature.properties.commune + '<br>'
-                        + '<b>Adresse : </b>' + feature.properties.adresse + '<br>'
+                        + '<b>Adresse : </b>' + feature.properties.numerodansvoie + feature.properties.voie + '<br>'
                         + '<b>Code commune : </b>' + feature.properties.code_com + '<br>'
                     );
                     return marker ;
@@ -40,9 +40,44 @@
                 }
             }).addTo(map);
 
+            map.locate({setView: true, watch: true}) /* This will return map so you can do chaining */
+                .on('locationfound', function(e){
+                    var marker = L.marker([e.latitude, e.longitude]).bindPopup('Vous êtes ici :)');
+                    var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
+                        weight: 1,
+                        color: 'blue',
+                        fillColor: '#cacaca',
+                        fillOpacity: 0.2
+                    });
+                    map.addLayer(marker);
+                    map.addLayer(circle);
+                })
+                .on('locationerror', function(e){
+                    console.log(e);
+                    alert("Location access denied.");
+                });
+
+
+        };
+/*
+        if("geolocation" in navigator){
+            alert("la geoloc marche");
+        }else{
+            alert("la geoloc ne marche pas")
+        }
+
+
+        function setCoord(){
+            L.map('map').setView([position.coords.latitude, position.coords.longitude])
 
         }
 
+       function geolocation(){
+            navigator.geolocation.getCurrentPosition(function(position){
+                setCoord(position.coords.latitude, position.coords.longitude);
+           });
+       }
+*/
 
     </script>
 
@@ -59,7 +94,7 @@
 
 
 
-
+    <button onclick="locate()"id="geoloc">Me localiser</button>
     <div id="map" style="height: 400px"></div>
 
 

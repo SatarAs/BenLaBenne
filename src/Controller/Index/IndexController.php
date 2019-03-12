@@ -2,10 +2,13 @@
 
 namespace App\Controller\Index;
 
+
+
+use App\Entity\NewsletterSend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Config\Loader\FileLoader;
+
 
 class IndexController extends AbstractController
 {
@@ -88,15 +91,30 @@ class IndexController extends AbstractController
     /**
      * @Route("/newsletter", name="newsletter")
      */
-    public function newsletter()
-    {
-        return $this->render('static/newsletter.html.twig', [
-            'controller_name' => 'IndexController',
+    public function Newsletter(){
+        $newsletterSend = New NewsletterSend();
+        $newsletterSend->setNewsletterSend("Newsletter");
 
+        $form = $this->createFormBuilder($newsletterSend)
+            ->add('Newsletter', EmailType::class)
+            ->getForm();
+
+        return $this->render('footer.html.twig',[
+            'form' => $form->createView()
         ]);
-
-
     }
+
+/*
+    $newsletter = (new \Swift_Message('Votre souscription à la Newsletters'))
+        ->setFrom('contact@benlabenne.com')
+        ->SetTo('test@gmail.com')
+        ->SetCc('test2@gmail.com')
+        ->SetBody($this->renderView('static/newsletter.html.twig'));
+
+    $mailer->send($newsletter);
+    return $this->render('Index/home.html.twig');
+*/
+
 
     /**
      * @Route("/team", name="team")
