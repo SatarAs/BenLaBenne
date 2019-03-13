@@ -57,14 +57,13 @@ class AdminController extends AbstractController
 
         // Déclaration des différents tableaux
         $properties = $showContainers[0]['features'][0]['properties'];
-         // var_dump($showContainers[0]['features']);
+        // $geocoordinates = $showContainers[0]['features'][0]['geometry']['coordinates'][0][1];
+        // var_dump($showContainers[0]['features']);
 
         return $this->render('Admin/containers.html.twig', array(
             'json' => $showContainers,
             'features' => $showContainers[0]['features'],
             'properties' => $showContainers[0]['features'][0]['properties'],
-            'coordinatesX' => $showContainers[0]['features'][0]['geometry']['coordinates'][0],
-            'coordinatesY' => $showContainers[0]['features'][0]['geometry']['coordinates'][1],
 
             // Première manière
             // 'commune' => $showContainers[0]['features'][0]['properties'],
@@ -73,7 +72,7 @@ class AdminController extends AbstractController
             'commune'           => $properties['commune'],
             'code_postal'       => $properties['code_postal'],
             'numerodansvoie'    => $properties['numerodansvoie'],
-            'voie'              => $properties['voie'],
+            'voie'              => $properties['voie']
         ));
     }
 
