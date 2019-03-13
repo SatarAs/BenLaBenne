@@ -17,13 +17,13 @@
                 <form method="POST" enctype="multipart/form-data">
                     <div class="form-group row margin-top">
                         <div class="col-sm-12">
-                            <input type="text" style="text-align:center;" class="form-control" id="" placeholder="nom de l'article">
+
                             {{ form_row(form.titre) }}
                         </div>
                     </div>
                     <div class="form-group row margin-top">
                         <div class="col-sm-12">
-                            <input type="text" style="text-align:center;" class="form-control" id="" placeholder="Créateur de l'article">
+                            <input type="text" class="form-control" id="" placeholder="Créateur de l'article">
                         </div>
                     </div>
                     <div class="form-group row margin-top">
@@ -61,8 +61,8 @@
                     <div class="form-group row margin-top">
                         <div class="col-sm-12">
                             <form method="post">
-                                <textarea id="mytextarea">Allez Baudelaire, écrit ton article ici</textarea>
-                                {{ form_row(form.contenu) }}
+                                <textarea id="mytextarea">{{ form_row(form.contenu) }}</textarea>
+
                             </form>
                         </div>
                     </div>
