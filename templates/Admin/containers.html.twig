@@ -42,18 +42,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for feature in features %}
+                        {% for feature in features|slice(0, 20) %}
                             <tr>
                                 <th scope="row">1</th>
                                 <td>{{ feature.properties.commune}}
                                 <td>{{ feature.properties.code_postal }}</td>
                                 <td>{{ feature.properties.voie }}</td>
-                                {# if feature.properties.numerodansvoie #}
-                                <td>{{ numerodansvoie }}</td>
-                                {# endif #}
-                                <td>{{ coordinatesX }}</td>
-                                <td>{{ coordinatesY }}</td>
+                                {% if numerodansvoie in properties %}
+                                    <td>{{ numerodansvoie}}</td>
+                                {% else %}
+                                    <td>NaN</td>
+                                {% endif %}
 
+
+                                <td>{{ feature.geometry.coordinates.0 }}</td>
+                                <td>{{ feature.geometry.coordinates.1 }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
