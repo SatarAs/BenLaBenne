@@ -5,7 +5,7 @@ namespace App\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
- abstract class Users implements UserInterface
+abstract class Users implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -28,6 +28,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+
     /**
      * @return mixed
      */
@@ -91,4 +92,25 @@ use Symfony\Component\Security\Core\User\UserInterface;
     {
         $this->created_at = $created_at;
     }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function getPassword()
+    {
+        return null;
+    }
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function eraseCredentials()
+    {
+        return null;
+    }
 }
+
