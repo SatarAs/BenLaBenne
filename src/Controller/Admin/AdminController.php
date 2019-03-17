@@ -13,13 +13,6 @@ class AdminController extends AbstractController
      */
     public function index()
     {
-        $json = file_get_contents('../public/Json/benne.json');
-
-        $json = substr($json,11);
-        $showContainers = json_decode($json,true);
-        var_dump($showContainers[0]['features'][0]['geometry']);
-
-
         return $this->render('Admin/index.html.twig', [
             'controller_name' => 'AdminController',
         ]);
@@ -57,6 +50,7 @@ class AdminController extends AbstractController
 
         // Déclaration des différents tableaux
         $properties = $showContainers[0]['features'][0]['properties'];
+
         // $geocoordinates = $showContainers[0]['features'][0]['geometry']['coordinates'][0][1];
         // var_dump($showContainers[0]['features']);
 
