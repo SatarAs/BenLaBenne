@@ -324,6 +324,7 @@ body > nav{
 #map {
     height: 100%;
 
+    border: solid 2px #3c8564;
 }
 /*body > div.container-fluid.margin-top {
     background-image: url("/img/1.png");
@@ -388,4 +389,14 @@ body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div
 
 #marginimage {
     margin-top: 20px;
+}
+
+
+#article_contenu {
+    height: 300px;
+}
+
+#background12 {
+    border-radius: 15px;
+    background-color: #3c8564;
 }

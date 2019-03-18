@@ -22,8 +22,8 @@
                         <td>{{ article.chapo }}</td>
                         <td>{{ article.contenu }}</td>
                         <td>
-                            <a class="btn btn-success btn-sm" href="{{ path('article_show', {'id': article.id}) }}">Afficher</a>
-                            <a class="btn btn-info btn-sm margin-top" style="margin-top: 5px" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+                            <a class="btn btn-success btn-sm" href="{{ path('article_show', {'id': article.id}) }}"><i style="margin-right: 12px" class="fas fa-expand-arrows-alt fa-2x"></i></a>
+                            <a class="btn btn-info btn-sm margin-top" style="margin-top: 5px" href="{{ path('article_edit', {'id': article.id}) }}"><i style="margin-right: 12px" class="fas fa-pen-alt fa-2x"></i></a>
                         </td>
                     </tr>
                 {% else %}

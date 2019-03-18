@@ -6,26 +6,24 @@
         <div class="row text-center">
             <h1>Editer l'article</h1>
             <h1 class="rounded mx-auto d-block">" {{ article.titre }} "</h1>
+           <div class="">{{ include('article/_delete_form.html.twig') }}</div>
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid margin-top">
         {{ form_start(form) }}
         {{ form_widget(form) }}
 
-        <div class="row text-center">
+        <div class="row text-center margin-top">
             {{ form_row(form.titre) }}
             {{ form_row(form.chapo) }}
             {{ form_row(form.contenu) }}
         </div>
     </div>
 
-    <button class="btn btn-success btn-sm rounded mx-auto d-block margin-top">{{ button_label|default('Update') }}</button>
+    <button class="btn btn-success rounded mx-auto d-block margin-top">{{ button_label|default('Update') }}</button>
             {{ form_end(form) }}
 
-    <a  class="rounded mx-auto d-block" href="{{ path('article_index') }}" style="text-align: center">Retour à la liste</a>
-
-            {{ include('article/_delete_form.html.twig') }}
-
+    <a  class="rounded mx-auto d-block" href="{{ path('article_index') }}" style="text-align: center; margin-top: 10px">Retour à la liste</a>
 
 {% endblock %}
