@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,8 +14,12 @@ class AdminController extends AbstractController
      */
     public function index()
     {
+        $articles       = $this->getDoctrine()->getRepository(Article::class)->findAll();
+
+        $nbrArticles    = count($articles);
+
         return $this->render('Admin/index.html.twig', [
-            'controller_name' => 'AdminController',
+            'nbrArticles' => $nbrArticles
         ]);
     }
 
