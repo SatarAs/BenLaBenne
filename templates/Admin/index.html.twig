@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 {% set active = 'admin_index' %}
 {% set active_link = 'administration' %}
-{% block page_title %} Panel{% endblock %}
+{% block page_title %}Panel{% endblock %}
 
 {% block content %}
 
@@ -16,7 +16,7 @@
                     </a>
                     <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-arrow-alt-circle-right"></i>Demande en attentes</a>
                     <a href="{{ url('admin_containers') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Benne</a>
-                    <a href="{{ url('admin_articles_manage') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Article</a>
+                    <a href="{{ url('article_index') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Article</a>
                     <a href="{{ url('admin_account') }}"class="list-group-item list-group-item-action"><i class="far fa-user-circle"></i> Voir Compte</a>
                 </div>
             </ul>
@@ -27,7 +27,7 @@
                     <p style="color: black;"> <h3> Bonjour, </h3></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">3 Articles en attente</li>
+                    <li class="list-group-item">{{ nbrArticles }} Articles au total</li>
                     <li class="list-group-item">39 bennes a ajouter</li>
                     <li class="list-group-item">cdjs</li>
                     <li class="list-group-item">drfg</li>
