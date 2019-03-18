@@ -4,88 +4,94 @@ namespace App\Controller\Admin;
 
 use App\Entity\Admin;
 use App\Entity\Article;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Form\ArticleType;
+use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * @Route("/article")
+ */
 class ArticleController extends AbstractController
 {
     /**
-     * @param Request $request
-     * @return mixed
-     * @Route("/admin/articles/add", name="admin_articles_add")
+     * @Route("/", name="article_index", methods={"GET"})
      */
-    public function Article(Request $request)
+    public function index(ArticleRepository $articleRepository): Response
     {
+        return $this->render('article/index.html.twig', [
+            'articles' => $articleRepository->findAll(),
+        ]);
+    }
 
-
-        $form = $this->createFormbuilder()
-            ->add('titre', TextType::class, [
-                'required' => true,
-                'label' => false,
-                'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Titre de l\'Article...'
-                ]
-            ])
-/*
-            ->add('Admin', EntityType::class, [
-                'class'=>Admin::class
-            ])
-*/
-            ->add('chapo', TextareaType::class, [
-                'required' => true,
-                'label' => false,
-                'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Description de l\'Article...'
-                ]
-            ])
-            ->add('contenu', TextareaType::class, [
-                'required' => true,
-                'label' => false,
-                'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Contenu de l\'Article...'
-                ]
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Publier',
-                'attr' => [
-                    'class' => 'btn btn-primary'
-                ]
-            ])
-            ->getForm();
-        $form->handlerequest($request);
+    /**
+     * @Route("/add", name="article_add", methods={"GET","POST"})
+     */
+    public function add(Request $request): Response
+    {
+        $article = new Article();
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($article);
+            $entityManager->flush();
 
-            $titre = $data['titre'];
-            $chapo = $data['chapo'];
-            $contenu = $data['contenu'];
-            $article = new Article();
-
-            $article->setTitre($titre);
-            $article->setChapo($chapo);
-            $article->setContenu($contenu);
-       //     $article->setCreatedAt(new \DateTime('now'));
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
-            $em->flush();
-            return new Response('Article ajouté, merci !');
+            return $this->redirectToRoute('article_index');
         }
 
-
-        return $this->render('Admin/Add/addArticle.html.twig', [
-            'form' => $form->createView()
+        return $this->render('article/add.html.twig', [
+            'article' => $article,
+            'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="article_show", methods={"GET"})
+     */
+    public function show(Article $article): Response
+    {
+        return $this->render('article/show.html.twig', [
+            'article' => $article,
+        ]);
+    }
+
+    /**
+     * @Route("/edit/{id}", name="article_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Article $article): Response
+    {
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('article_index', [
+                'id' => $article->getId(),
+            ]);
+        }
+
+        return $this->render('article/edit.html.twig', [
+            'article' => $article,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="article_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Article $article): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($article);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('article_index');
     }
 }
