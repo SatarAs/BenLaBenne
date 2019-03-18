@@ -3,10 +3,12 @@
 namespace App\Controller\Index;
 
 
-
 use App\Entity\NewsletterSend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -53,6 +55,7 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+
     /**
      * @Route("/mentionLegales", name="mentionLegales")
      */
@@ -90,30 +93,46 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/newsletter", name="newsletter")
+     * @param \Swift_Mailer $mailer
      */
-    public function Newsletter(){
-        $newsletterSend = New NewsletterSend();
-        $newsletterSend->setNewsletterSend("Newsletter");
+    public function Newsletter(\Swift_Mailer $mailer, Request $request)
+    {
 
-        $form = $this->createFormBuilder($newsletterSend)
+        $form = $this->createFormBuilder()
             ->add('Newsletter', EmailType::class)
+            ->add('envoyer', SubmitType::class)
             ->getForm();
 
-        return $this->render('footer.html.twig',[
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $data = $form->getData();
+
+            $newsletterSend = $data['Newsletter'];
+
+            $message = (new \Swift_Message('Rappel évenement'))
+
+                ->setFrom('contact@gmail.com')
+                ->setTo($newsletterSend)
+                ->setCc('test2@gmail.com')
+                ->setBody('Vous êtes bien inscrit à la newsletter de BenLaBenne, merci !');
+            $mailer->send($message);
+            return new Response('Mail envoyé');
+
+
+        }
+
+        return $this->render('index/home.html.twig', [
             'form' => $form->createView()
         ]);
+
     }
+    /*
 
-/*
-    $newsletter = (new \Swift_Message('Votre souscription à la Newsletters'))
-        ->setFrom('contact@benlabenne.com')
-        ->SetTo('test@gmail.com')
-        ->SetCc('test2@gmail.com')
-        ->SetBody($this->renderView('static/newsletter.html.twig'));
-
-    $mailer->send($newsletter);
-    return $this->render('Index/home.html.twig');
-*/
+        }
+    */
 
 
     /**
