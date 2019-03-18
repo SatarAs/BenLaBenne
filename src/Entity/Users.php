@@ -5,7 +5,7 @@ namespace App\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
-abstract class Users implements UserInterface
+class Users implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -112,5 +112,12 @@ abstract class Users implements UserInterface
     {
         return null;
     }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+
 }
 

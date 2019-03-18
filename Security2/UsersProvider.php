@@ -6,7 +6,7 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-abstract class UsersProvider implements UserProviderInterface
+class UsersProvider implements UserProviderInterface
 {
     private $entityManager;
 

@@ -11,7 +11,7 @@ use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 
-abstract class GoogleAuthenticator extends SocialAuthenticator
+ class GoogleAuthenticator extends SocialAuthenticator
 {
     private $clientRegistry;
     private $em;
@@ -43,7 +43,7 @@ abstract class GoogleAuthenticator extends SocialAuthenticator
         $user = $this->em->getRepository('App:User')
             ->findOneBy(['email' => $email]);
         if (!$user) {
-            $user = new User();
+            $user = new Users();
             $user->setEmail($googleUser->getEmail());
             $user->setFullname($googleUser->getName());
             $user->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
