@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+{% block page_title %}Edition {{ article.titre }}{% endblock %}
+
+{% block content %}
+    <h1>Editer l'article</h1>
+    <h2>{{ article.titre }}</h2>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_row(form.titre) }}
+    {{ form_row(form.chapo) }}
+    {{ form_row(form.contenu) }}
+    <button class="btn">{{ button_label|default('Update') }}</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('article_index') }}">Retour à la liste</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}
