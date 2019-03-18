@@ -2,35 +2,40 @@
 {% block page_title %} Liste des articles{% endblock %}
 
 {% block content %}
-    <h1>Liste des articles</h1>
+    <div class="container margin-top" style="text-align: center">
+        <div class="row">
+            <h1 class="rounded mx-auto d-block">Liste des articles</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Chapô</th>
-                <th>Contenu</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.chapo }}</td>
-                <td>{{ article.contenu }}</td>
-                <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">Afficher</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Aucun article n'a été trouvé</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            <table class="table margin-top">
+                <thead>
+                <tr>
+                    <th><h5>Titre</h5></th>
+                    <th><h5>Chapô</h5></th>
+                    <th><h5>Contenu</h5></th>
+                    <th><h5>Actions</h5></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.titre }}</td>
+                        <td>{{ article.chapo }}</td>
+                        <td>{{ article.contenu }}</td>
+                        <td>
+                            <a class="btn btn-success btn-sm" href="{{ path('article_show', {'id': article.id}) }}">Afficher</a>
+                            <a class="btn btn-info btn-sm margin-top" style="margin-top: 5px" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Aucun article n'a été trouvé</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
-    <a href="{{ path('article_add') }}">Ajouter nouvel article</a>
+            <a class="btn btn-success rounded mx-auto d-block" href="{{ path('article_add') }}">Ajouter nouvel article</a>
+        </div>
+    </div>
+
 {% endblock %}
