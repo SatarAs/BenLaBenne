@@ -33,10 +33,10 @@
                         <thead>
                         <tr>
                             <th scope="col">Image</th>
-                            <th scope="col">Commune</th>
-                            <th scope="col">Code Postal</th>
-                            <th scope="col">Voie</th>
                             <th scope="col">Numéro</th>
+                            <th scope="col">Voie</th>
+                            <th scope="col">Code Postal</th>
+                            <th scope="col">Commune</th>
                             <th scope="col">Position X</th>
                             <th scope="col">Position Y</th>
                         </tr>
@@ -45,16 +45,14 @@
                         {% for feature in features|slice(0, 20) %}
                             <tr>
                                 <th scope="row">1</th>
-                                <td>{{ feature.properties.commune}}
-                                <td>{{ feature.properties.code_postal }}</td>
-                                <td>{{ feature.properties.voie }}</td>
-                                {% if numerodansvoie in properties %}
-                                    <td>{{ numerodansvoie}}</td>
-                                {% else %}
+                                {% if feature.properties.numerodansvoie is defined %}
+                                    <td>{{ feature.properties.numerodansvoie }}</td>
+                                {% elseif feature.properties.numerodansvoie is not defined %}
                                     <td>NaN</td>
                                 {% endif %}
-
-
+                                <td>{{ feature.properties.voie }}</td>
+                                <td>{{ feature.properties.code_postal }}</td>
+                                <td>{{ feature.properties.commune }}</td>
                                 <td>{{ feature.geometry.coordinates.0 }}</td>
                                 <td>{{ feature.geometry.coordinates.1 }}</td>
                             </tr>
