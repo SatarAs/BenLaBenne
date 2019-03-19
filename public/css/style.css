@@ -40,19 +40,21 @@ i {
 
 }
 .nav-item:hover {
-    -webkit-animation: swing 1s ease;
-    animation: swing 1s ease;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
+
 }
 .nav-item > a {
  color: white;
-    transition: .5s ease;
-    transition: .5s ease;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
 }
 .nav-item > a:hover {
     text-decoration: none;
     border-bottom: solid 2px;
+    display: flex;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
 }
 body > nav{
     height: 72px;
