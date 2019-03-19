@@ -402,3 +402,16 @@ body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div
     border-radius: 15px;
     background-color: #3c8564;
 }
+
+.mycluster {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: rgb(60, 133, 100);
+    color: #e6efe1;
+    text-align: center;
+    font-size: 17px;
+    line-height: 38px;
+    margin-top: -20px;
+    margin-left: -20px;
+}

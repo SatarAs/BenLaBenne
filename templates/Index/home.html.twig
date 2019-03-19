@@ -12,54 +12,82 @@
                     window.onload = function () {
                         console.log('Page chargée ');
 
-                        var map = L.map('map').setView([45.75 , 4.85], 12);
-                        var titleStreets = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                        var map = L.map('map').setView([45.75 , 4.85], 8);
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                             maxZoom: 18,
                             id: 'mapbox.streets',
                             accessToken: 'pk.eyJ1IjoiMTY5NTciLCJhIjoiY2pzcHhodDB5MHF4YjQzbzA3dHByb3V2ZiJ9.CiBSDPowlgXwoiRjIlhTKg'
                         }).addTo(map);
 
-                        // ajout de l'image : logo sur le marker
-                        var icon = L.icon({
-                            iconUrl: 'img/logoP4.png',
-                            iconSize: [45, 40], // Taille de l'icon
-                        });
+                        // L.control.layers(map, null, {position: 'topright'}).addTo(map);
 
                         geojson = L.geoJson(Verre, {
                             style: function (feature) {
                                 return feature.properties && feature.properties.style;
-                            },
-                            pointToLayer: function (feature, latlng) {
-                                var marker =  L.marker(latlng, {icon: icon});
-                                marker.bindPopup('<b><strong style="size: 30px">Description</strong></b><br>'
-                                    + '<b><u>Commune</u> : </b>'+ feature.properties.commune + '<br>'
-                                    + '<b><u>Adresse</u> : </b>' + feature.properties.voie + '<br>'
-                                    + '<b><u>Code commune</u> : </b>' + feature.properties.code_postal + '<br>'
-                                );
-                                return marker ;
                             }
-                        }).addTo(map);
-                        L.Control.Watermark = L.Control.extend({
-                            onAdd: function(map) {
-                                var img = L.DomUtil.create('img');
 
-                                img.src = 'img/logoP4.png';
-                                img.style.width = '100px';
-
-                                return img;
-                            },
-
-                            onRemove: function(map) {
-                                // Nothing to do here
+                        });
+                        var markersCluster = new L.MarkerClusterGroup({
+                            iconCreateFunction: function(cluster) {
+                                return L.divIcon({
+                                    html: cluster.getChildCount(),
+                                    className: 'mycluster',
+                                    iconSize: null
+                                });
                             }
                         });
 
-                        L.control.watermark = function(opts) {
-                            return new L.Control.Watermark(opts);
+                        var markers = geojson.getLayers();
+
+                        for ( var i = 0; i < markers.length; ++i )
+                        {
+
+                            var  myIcon = L.icon({
+                                iconUrl: "img/logoP4.png",
+                                iconSize: [30, 35]
+                            });
+
+                            //   var marker = L.marker({icon:myIcon});
+
+                            // Detail du Popup
+
+                            var popup ='<b><strong style="size: 30px">Description</strong></b><br>'
+                                + '<b><u>Commune</u> : </b>'+ markers[i].feature.properties.commune + '<br>'
+                                + '<b><u>Adresse</u> : </b>' + markers[i].feature.properties.voie + '<br>'
+                                + '<b><u>Code commune</u> : </b>' + markers[i].feature.properties.code_postal + '<br>'
+                            ;
+
+
+                            var m = L.marker( [markers[i]._latlng.lat, markers[i]._latlng.lng], {icon:myIcon}  )
+                                .bindPopup( popup )
+                            ;
+
+                            markersCluster.addLayer( m );
                         }
 
-                        L.control.watermark({ position: 'bottomleft' }).addTo(map);
-                    }
+                        map.addLayer( markersCluster );
+
+                        map.locate({setView: false, watch: false}) /* This will return map so you can do chaining */
+                            .on('locationfound', function(e){
+                                var persomarker = L.marker([e.latitude, e.longitude]).bindPopup('Vous êtes ici :)');
+                                var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
+                                    weight: 1,
+                                    color: 'blue',
+                                    fillColor: '#4d94b9',
+                                    fillOpacity: 0.2
+                                });
+                                map.addLayer(persomarker);
+                                map.addLayer(circle);
+                            })
+                            .on('locationerror', function(e){
+                                console.log(e);
+                                alert("Location access denied.");
+                            });
+
+                        /*map.on('click', onMapClick);*/
+                    };
+
+
                 </script>
 
                 <div id="map" class="rounded mx-auto d-block text-center" ></div>
