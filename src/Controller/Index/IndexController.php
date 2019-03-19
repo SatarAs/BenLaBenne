@@ -72,12 +72,18 @@ class IndexController extends AbstractController
      */
     public function map()
     {
-
-
         return $this->render('Index/map.html.twig', [
             'controller_name' => 'IndexController',
+        ]);
+    }
 
-
+    /**
+     * @Route("/infos", name="infos")
+     */
+    public function infosNewsletter()
+    {
+        return $this->render('static/newsletter.html.twig', [
+            'controller_name' => 'IndexController',
         ]);
     }
 
@@ -91,14 +97,16 @@ class IndexController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/newsletter", name="newsletter")
      * @param \Swift_Mailer $mailer
      */
     public function Newsletter(\Swift_Mailer $mailer, Request $request)
     {
+        $test = new NewsletterSend();
 
-        $form = $this->createFormBuilder()
+        $form = $this->createFormBuilder($test)
             ->add('Newsletter', EmailType::class)
             ->add('envoyer', SubmitType::class)
             ->getForm();
@@ -110,10 +118,9 @@ class IndexController extends AbstractController
 
             $data = $form->getData();
 
-            $newsletterSend = $data['Newsletter'];
+            $newsletterSend = $data->Newsletter;
 
             $message = (new \Swift_Message('Rappel évenement'))
-
                 ->setFrom('contact@gmail.com')
                 ->setTo($newsletterSend)
                 ->setCc('test2@gmail.com')
@@ -121,18 +128,13 @@ class IndexController extends AbstractController
             $mailer->send($message);
             return new Response('Mail envoyé');
 
-
         }
 
-        return $this->render('index/home.html.twig', [
-            'form' => $form->createView()
+        return $this->render('newsletter/newsletterSub.html.twig', [
+            'form' => $form->createView(),
         ]);
 
     }
-    /*
-
-        }
-    */
 
 
     /**
