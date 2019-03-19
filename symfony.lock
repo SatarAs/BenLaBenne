@@ -123,6 +123,12 @@
     "league/oauth2-client": {
         "version": "2.4.1"
     },
+    "league/oauth2-facebook": {
+        "version": "2.0.1"
+    },
+    "league/oauth2-google": {
+        "version": "3.0.1"
+    },
     "monolog/monolog": {
         "version": "1.24.0"
     },
@@ -351,6 +357,9 @@
         ]
     },
     "symfony/polyfill-intl-icu": {
+        "version": "v1.10.0"
+    },
+    "symfony/polyfill-intl-idn": {
         "version": "v1.10.0"
     },
     "symfony/polyfill-mbstring": {
