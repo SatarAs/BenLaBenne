@@ -1,30 +1,14 @@
 <?php
-
 namespace App\Controller\Index;
-
-
-
-use App\Entity\Article;
 use App\Entity\NewsletterSend;
-use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
-
 class IndexController extends AbstractController
 {
-
-    /**
-     * @var ArticleRepository
-     */
-    private $repository;
-
-    public function __construct(ArticleRepository $repository)
-    {
-        $this->repository = $repository;
-    }
-
     /**
      * @Route("/", name="index_home")
      */
@@ -34,27 +18,24 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
-
-
     /**
      * @Route("/news", name="news")
      */
     public function news()
     {
-        $articles = $this->repository->findAll();
-        return $this->render('Index/news.html.twig', compact('articles'));
+        return $this->render('Index/news.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
     }
-
     /**
      * @Route("/news/articles/{id}", name="news_article")
      */
-    public function article($id)
+    public function article()
     {
-        $article = $this->repository->find($id);
-
-        return $this->render('Index/article.html.twig', compact('article'));
+        return $this->render('Index/news.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
     }
-
     /**
      * @Route("/chat", name="chat")
      */
@@ -73,20 +54,24 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
-
-
     /**
      * @Route("/map", name="map")
      */
     public function map()
     {
-
         return $this->render('Index/map.html.twig', [
             'controller_name' => 'IndexController',
-
         ]);
     }
-
+    /**
+     * @Route("/infos", name="infos")
+     */
+    public function infosNewsletter()
+    {
+        return $this->render('static/newsletter.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
     /**
      * @Route("/map/containers/{id}", name="map_containers")
      */
@@ -96,35 +81,33 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
-
     /**
      * @Route("/newsletter", name="newsletter")
+     * @param \Swift_Mailer $mailer
      */
-    public function Newsletter(){
-        $newsletterSend = New NewsletterSend();
-        $newsletterSend->setNewsletterSend("Newsletter");
-
-        $form = $this->createFormBuilder($newsletterSend)
+    public function Newsletter(\Swift_Mailer $mailer, Request $request)
+    {
+        $test = new NewsletterSend();
+        $form = $this->createFormBuilder($test)
             ->add('Newsletter', EmailType::class)
+            ->add('envoyer', SubmitType::class)
             ->getForm();
-
-        return $this->render('footer.html.twig',[
-            'form' => $form->createView()
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $newsletterSend = $data->Newsletter;
+            $message = (new \Swift_Message('Rappel évenement'))
+                ->setFrom('contact@gmail.com')
+                ->setTo($newsletterSend)
+                ->setCc('test2@gmail.com')
+                ->setBody('Vous êtes bien inscrit à la newsletter de BenLaBenne, merci !');
+            $mailer->send($message);
+            return new Response('Mail envoyé');
+        }
+        return $this->render('newsletter/newsletterSub.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
-
-/*
-    $newsletter = (new \Swift_Message('Votre souscription à la Newsletters'))
-        ->setFrom('contact@benlabenne.com')
-        ->SetTo('test@gmail.com')
-        ->SetCc('test2@gmail.com')
-        ->SetBody($this->renderView('static/newsletter.html.twig'));
-
-    $mailer->send($newsletter);
-    return $this->render('Index/home.html.twig');
-*/
-
-
     /**
      * @Route("/team", name="team")
      */
@@ -134,7 +117,6 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
-
     /**
      * @Route("/contact", name="contact")
      */
