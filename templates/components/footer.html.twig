@@ -6,7 +6,7 @@
                 <div class="col-md-3 mb-md-0 mb-3">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{ url('newsletter') }}">Pourquoi s'abonner à la newsletter ?</a>
+                            <a href="{{ url('infos') }}">Pourquoi s'abonner à la newsletter ?</a>
                         </li>
                         <li>
                             <a href="{{ url('contact') }}">Nous contacter</a>
@@ -26,24 +26,10 @@
                         <a href="https://www.instagram.com/villedelyon/?hl=fr" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
                         <a href="#"><i class="fas fa-rss fa-2x"></i></a>
                     </ul>
-
                 </div>
-                <div class="col-md-6 mt-md-0 mt-3">
-                    <ul class="list-unstyled">
-                        <form action="{{ path('newsletter') }}" class="input-group">
-                            <input type="text" class="form-control form-control-sm" placeholder="Newsletter@mail.com" aria-label="Votre E-mail" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-
-                                <button class="btn btn-sm btn-outline-white my-0" type="submit">Je m'inscris</button>
-
-                            </div>
-                        </form>
-                    </ul>
-                </div>
-            </div>
+            </div> <!-- ROW -->
         </div>
     </footer>
     <!-- Footer -->
-
 
 {% endblock %}
