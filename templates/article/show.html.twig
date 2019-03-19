@@ -2,32 +2,38 @@
 {% block page_title %}{{ article.titre }}{% endblock %}
 
 {% block content %}
-    <h1>Article</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ article.titre }}</td>
-            </tr>
-            <tr>
-                <th>Chapo</th>
-                <td>{{ article.chapo }}</td>
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ article.contenu }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container margin-top">
+        <div class="row">
+            <h1 class="rounded mx-auto d-block margin-top">Article</h1>
 
-    <a href="{{ path('article_index') }}">Retour à la liste</a>
+            <table class="table margin-bottom">
+                <tbody>
+                <tr>
+                    <th><h5>Id</h5></th>
+                    <td>{{ article.id }}</td>
+                </tr>
+                <tr>
+                    <th><h5>Titre</h5></th>
+                    <td>{{ article.titre }}</td>
+                </tr>
+                <tr>
+                    <th><h5>Chapo</h5></th>
+                    <td>{{ article.chapo }}</td>
+                </tr>
+                <tr>
+                    <th><h5>Contenu</h5></th>
+                    <td>{{ article.contenu }}</td>
+                </tr>
+                </tbody>
+            </table>
 
-    <a href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+            <a class="btn btn-success rounded mx-auto d-block" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+            {{ include('article/_delete_form.html.twig') }}
+            <a class="btn btn-warning rounded mx-auto d-block" href="{{ path('article_index') }}">Retour</a>
 
-    {{ include('article/_delete_form.html.twig') }}
+
+        </div>
+    </div>
+
 {% endblock %}

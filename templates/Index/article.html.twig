@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <div class="container margin-top">
+        <div class="row">
+            <div class="col-sm-9" style="text-align: center">
+
+                <div class="card margin-top">
+                    <h4 class="card-header">{{ article.titre }}</h4>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.chapo }}</h5>
+                        <p class="card-text">{{ article.contenu }}</p>
+                        <a href="{{ path('news') }}" class="btn btn-success margin-top btn-sm">Retour aux articles</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-3" style="text-align: center">
+
+                <img  src="{{ asset('img/imageTri.jpg') }}" alt="..." class="img-thumbnail">
+                <img  src="{{ asset('img/imageTri2.jpg') }}" alt="..." id="marginimage" class="img-thumbnail">
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

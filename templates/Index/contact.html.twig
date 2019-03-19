@@ -6,7 +6,7 @@
 
  <div class="container margin-top">
      <div class="row">
-         <div class="col-sm-9" style="text-align: center">
+         <div class="col-sm-9" id="bgcontactform" style="text-align: center">
              <h2>Contactez-nous</h2>
              <form action="/action_page.php">
                      <!-- Nom -->
@@ -33,7 +33,7 @@
                      <!-- Code postal -->
                      <div class="form-group">
                          <div class="col-sm-6 rounded mx-auto d-block">
-                             <input id="sujet" name="sujet" type="text" placeholder="Code postal puto" class="form-control input-md">
+                             <input id="sujet" name="sujet" type="text" placeholder="Code postal" class="form-control input-md">
                          </div>
                      </div>
 
@@ -44,12 +44,13 @@
                          </div>
                      </div>
                  <button type="submit"  id="boutoncolor" class="btn btn-">Envoyer</button>
+
              </form>
          </div>
          <div class="col-sm-3" style="text-align: center">
 
              <img  src="{{ asset('img/imageTri.jpg') }}" alt="..." class="img-thumbnail">
-             <img  src="{{ asset('img/imageTri2.jpg') }}" alt="..." class="img-thumbnail">
+             <img  src="{{ asset('img/imageTri2.jpg') }}" alt="..." id="marginimage" class="img-thumbnail">
 
 
          </div>
