@@ -14,12 +14,20 @@ class AdminController extends AbstractController
      */
     public function index()
     {
+        $json = file_get_contents('../public/Json/ben.js');
+        $json = substr($json,10);
+        $countContainers = json_decode($json,true);
+
         $articles       = $this->getDoctrine()->getRepository(Article::class)->findAll();
 
         $nbrArticles    = count($articles);
 
         return $this->render('Admin/index.html.twig', [
-            'nbrArticles' => $nbrArticles
+            'nbrArticles'   => $nbrArticles,
+            'json'          => $countContainers,
+            //'features'      => $countContainers[0]['features'],
+            //'properties'    => $countContainers[0]['features'][0]['properties'],
+            'gml_id'        => count($countContainers[0]['features'])
         ]);
     }
 
