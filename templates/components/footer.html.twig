@@ -1,35 +1,38 @@
 {% block content %}
 
-    <footer class="page-footer font-small pt-4 margin-top" style="margin-top: 15%">
+    <div class="card-footer border-success" id="footer">
+
         <div class="container-fluid text-center text-md-left">
             <div class="row">
-                <div class="col-md-3 mb-md-0 mb-3">
+                <div class="col margin-top">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{ url('infos') }}">Pourquoi s'abonner à la newsletter ?</a>
+                            <a href="{{ url('infos') }}" id="reseau" >Pourquoi s'abonner à la newsletter ?</a>
                         </li>
                         <li>
-                            <a href="{{ url('contact') }}">Nous contacter</a>
+                            <a href="{{ url('contact') }}" id="reseau">Nous contacter</a>
                         </li>
                         <li>
-                            <a href="{{ url('mentionLegales') }}">Mentions légales</a>
+                            <a href="{{ url('mentionLegales') }}" id="reseau">Mentions légales</a>
                         </li>
 
                     </ul>
 
                 </div>
                 <hr class="clearfix w-100 d-md-none pb-3">
-                <div class="col-md-3 mb-md-0 mb-3">
+                <div class="col margin-top">
                     <ul class="list-unstyled">
-                        <a href="https://www.facebook.com/LyonFrance/" target="_blank"><i class="fab fa-facebook-f fa-2x"></i></a>
-                        <a href="https://twitter.com/villedelyon" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
-                        <a href="https://www.instagram.com/villedelyon/?hl=fr" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="#"><i class="fas fa-rss fa-2x"></i></a>
+                        <a href="https://www.facebook.com/LyonFrance/" target="_blank"><i class="fab fa-facebook-f fa-3x" id="iconreseau" ></i></a>
+                        <a href="https://twitter.com/villedelyon" target="_blank"><i class="fab fa-twitter fa-3x" id="iconreseau"></i></a>
+                        <a href="https://www.instagram.com/villedelyon/?hl=fr" target="_blank"><i class="fab fa-instagram fa-3x" id="iconreseau"></i></a>
+                        <a href="#"><i class="fas fa-rss fa-3x" id="iconreseau"></i></a>
                     </ul>
                 </div>
             </div> <!-- ROW -->
         </div>
-    </footer>
-    <!-- Footer -->
+
+    </div>
+
+
 
 {% endblock %}
