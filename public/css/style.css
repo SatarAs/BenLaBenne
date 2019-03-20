@@ -444,9 +444,11 @@ body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div
 
 }
 
-
-
 body > div.container > div > form > div.text-center.btn.dusty-grass-gradient.margin-top.waves-effect.waves-light {
     margin-left: 43%;
+}
+
+#login_form > form > div {
+    text-align: center;
 }
 
