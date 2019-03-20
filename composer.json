@@ -8,6 +8,8 @@
         "ext-json": "^1.6",
         "fzaninotto/faker": "^1.8",
         "knplabs/knp-paginator-bundle": "^3.0",
+        "knpuniversity/oauth2-client-bundle": "^1.27",
+        "league/oauth2-google": "^3.0",
         "sensio/framework-extra-bundle": "^5.2",
         "symfony/asset": "4.2.*",
         "symfony/console": "4.2.*",
