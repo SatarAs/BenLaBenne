@@ -11,13 +11,13 @@ security:
     main:
       anonymous: ~
       logout:
-        path: /logout
-        target: /login
+        path:
+        target:
       logout_on_user_change: true
 
       guard:
         authenticators:
-        - App\Security2\AuthenticatorProvider
+
         - App\Security2\GoogleAuthenticator
 
 

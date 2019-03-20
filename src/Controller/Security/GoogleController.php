@@ -3,6 +3,8 @@
 namespace App\Controller\Security;
 
 
+use App\Entity\Authenticator;
+use App\Form\LoginForm;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -18,6 +20,7 @@ class GoogleController extends AbstractController
      */
     public function connectAction(ClientRegistry $clientRegistry)
     {
+        LoginForm::class;
         return $clientRegistry
             ->getClient('google')
             ->redirect();
@@ -39,5 +42,6 @@ class GoogleController extends AbstractController
         }
 
     }
+
 
 }

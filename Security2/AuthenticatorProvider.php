@@ -67,6 +67,6 @@ class AuthenticatorProvider implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        return $class === 'App\Security\User';
+        return $class === 'App\Security2\Authenticator';
     }
 }
