@@ -3,28 +3,29 @@
 {% block content %}
 
     <div class="container margin-top">
+        <h1 class="margin-top margin-bottom text-center" style="color: #3c8564">Votre article</h1>
         <div class="row">
-            <div class="col-sm-9" style="text-align: center">
 
-                <div class="card margin-top">
-                    <h4 class="card-header">{{ article.titre }}</h4>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ article.chapo }}</h5>
-                        <p class="card-text">{{ article.contenu }}</p>
-                        <a href="{{ path('news') }}" class="btn btn-success margin-top btn-sm">Retour aux articles</a>
+            <div class="col margin-top" style="text-align: center">
+                <!-- Jumbotron -->
+                <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/forest2.jpg);">
+                    <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+                        <div class="py-5">
+
+                            <!-- Content -->
+                            <h2 class="h2 orange-text"><i class="far fa-eye fa-2x"></i> {{ article.titre }}</h2>
+                            <h4 class="card-title h2 my-4 py-2">{{ article.chapo }}</h4>
+                            <p class="mb-4 pb-2 px-md-5 mx-md-5">{{ article.contenu }}</p>
+                            <a href="{{ path('news') }}" class="btn peach-gradient"><i class="fas fa-clone left"></i> Retour aux articles</a>
+
+                        </div>
                     </div>
                 </div>
-
+                <!-- Jumbotron -->
             </div>
 
-            <div class="col-sm-3" style="text-align: center">
-
-                <img  src="{{ asset('img/imageTri.jpg') }}" alt="..." class="img-thumbnail">
-                <img  src="{{ asset('img/imageTri2.jpg') }}" alt="..." id="marginimage" class="img-thumbnail">
-
-
-            </div>
         </div>
     </div>
+
 
 {% endblock %}
