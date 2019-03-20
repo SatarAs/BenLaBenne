@@ -11,13 +11,26 @@
                 <script>
                     window.onload = function () {
                         console.log('Page chargée ');
+
                         L.mapbox.accessToken = 'pk.eyJ1IjoiMTY5NTciLCJhIjoiY2pzcHhodDB5MHF4YjQzbzA3dHByb3V2ZiJ9.CiBSDPowlgXwoiRjIlhTKg';
-                        var map = L.map('map').setView([45.75 , 4.85], 8);
+                        /**var map = L.map('map').setView([45.75 , 4.85], 8);
                         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                             maxZoom: 18,
                             id: 'mapbox.streets',
                             accessToken: 'pk.eyJ1IjoiMTY5NTciLCJhIjoiY2pzcHhodDB5MHF4YjQzbzA3dHByb3V2ZiJ9.CiBSDPowlgXwoiRjIlhTKg'
                         }).addTo(map);
+*/
+                        var map = L.mapbox.map('map')
+                            .setView([43.6206, 1.5484], 11)
+                            .addControl(L.mapbox.geocoderControl('mapbox.places', {
+                                autocomplete: true
+                            }))
+                            .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+
+                        L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                            subdomains: ['a','b','c']
+                        }).addTo( map );
 
                         var directions = L.mapbox.directions();
 
