@@ -426,3 +426,27 @@ body > div.container-fluid.margin-top > div > div.col-sm-4.margin-top > ul > div
     margin-top: -20px;
     margin-left: -20px;
 }
+
+#newsletter {
+    padding-right: 20px;
+}
+#newsletter > div > label {
+    padding-right: 20px;
+    font-size: 28px;
+}
+#form_Newsletter {
+    border-color: #3c8564;
+    width: 185px;
+}
+#form_envoyer {
+    background-color: transparent;
+    border: transparent;
+
+}
+
+
+
+body > div.container > div > form > div.text-center.btn.dusty-grass-gradient.margin-top.waves-effect.waves-light {
+    margin-left: 43%;
+}
+
