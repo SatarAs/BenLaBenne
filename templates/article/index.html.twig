@@ -5,6 +5,7 @@
     <div class="container margin-top" style="text-align: center">
         <div class="row">
             <h1 class="rounded mx-auto d-block">Liste des articles</h1>
+            <a class="btn btn-success float-right" href="{{ path('article_add') }}">Ajouter nouvel article</a>
 
             <table class="table margin-top">
                 <thead>
@@ -33,8 +34,6 @@
                 {% endfor %}
                 </tbody>
             </table>
-
-            <a class="btn btn-success rounded mx-auto d-block" href="{{ path('article_add') }}">Ajouter nouvel article</a>
         </div>
     </div>
 
