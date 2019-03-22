@@ -7,14 +7,10 @@
         <div class="row">
             <h1 class="rounded mx-auto d-block margin-top">Article</h1>
 
-            <a href="{{ path('news_article', {'id': id}) }}" class="btn btn-success rounded mx-auto d-block">Voir article</a>
+            <a href="{{ path('news_article', {'id': id}) }}" class="btn btn-success rounded mx-auto d-block" style="height: 40px">Voir article</a>
 
             <table class="table margin-bottom">
                 <tbody>
-                <tr>
-                    <th><h5>Id</h5></th>
-                    <td>{{ article.id }}</td>
-                </tr>
                 <tr>
                     <th><h5>Titre</h5></th>
                     <td>{{ article.titre }}</td>
