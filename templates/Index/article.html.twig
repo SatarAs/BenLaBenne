@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <div class="container margin-top">
+        <h1 class="margin-top margin-bottom text-center" style="color: #3c8564">Votre article</h1>
+        <div class="row">
+
+            <div class="col margin-top" style="text-align: center">
+                <!-- Jumbotron -->
+                <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/forest2.jpg);">
+                    <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+                        <div class="py-5">
+
+                            <!-- Content -->
+                            <h2 class="h2 orange-text"><i class="far fa-eye fa-2x"></i> {{ article.titre }}</h2>
+                            <h4 class="card-title h2 my-4 py-2">{{ article.chapo }}</h4>
+                            <p class="mb-4 pb-2 px-md-5 mx-md-5">{{ article.contenu }}</p>
+                            <a href="{{ path('news') }}" class="btn peach-gradient"><i class="fas fa-clone left"></i> Retour aux articles</a>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Jumbotron -->
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

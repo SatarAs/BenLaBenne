@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+{% block page_title %} Liste des articles{% endblock %}
+
+{% block content %}
+    <div class="container margin-top" style="text-align: center">
+        <div class="row">
+            <h1 class="rounded mx-auto d-block">Liste des articles</h1>
+            <a class="btn btn-success float-right" href="{{ path('article_add') }}">Ajouter nouvel article</a>
+
+            <table class="table margin-top">
+                <thead>
+                <tr>
+                    <th><h5>Titre</h5></th>
+                    <th><h5>Chapô</h5></th>
+                    <th><h5>Contenu</h5></th>
+                    <th><h5>Actions</h5></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.titre }}</td>
+                        <td>{{ article.chapo }}</td>
+                        <td>{{ article.contenu }}</td>
+                        <td>
+                            <a class="btn btn-success btn-sm" href="{{ path('article_show', {'id': article.id}) }}"><i style="margin-right: 10px" class="fas fa-eye fa-2x"></i></a>
+                            <a class="btn btn-info btn-sm margin-top" style="margin-top: 5px" href="{{ path('article_edit', {'id': article.id}) }}"><i style="margin-right: 10px" class="fas fa-pen-alt fa-2x"></i></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Aucun article n'a été trouvé</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

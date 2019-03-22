@@ -4,35 +4,42 @@
 
     <div class="container margin-top">
         <div class="row">
-            <div class="col-sm-9" style="text-align: center">
-                <div class="media margin-top">
-                    <img src="..." class="mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Media heading</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
-                <div class="media margin-top">
-                    <img src="..." class="mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Media heading</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
-                <div class="media margin-top">
-                    <img src="..." class="mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Media heading</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
+            <div class="col-sm-9" id="background12" style="text-align: center">
+                <h1 class="margin-top margin-bottom" style="color: #3c8564"> Liste des dernières actualités</h1>
+
+    {% for key in article|slice(0, 23) %}
+
+        <div class="card card-cascade rounded mx-auto d-block wider reverse margin-top" style="width: 72%">
+
+            <!-- Card image -->
+            <div class="view view-cascade overlay">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg" style="height: 230px" alt="Card image cap">
+                <a href="{{ path('news_article', {'id': key.id}) }}">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <!-- Title -->
+                <h3 class="card-title"><strong>{{ key.titre }}</strong></h3>
+
+                <p class="card-text">{{ key.chapo }}
+                </p>
+                <a href="{{ path('news_article', {'id': key.id}) }}" class="redirect-article btn btn-success">Lire plus</a>
+            </div>
+
+        </div>
+
+    {% endfor %}
 
             </div>
 
             <div class="col-sm-3" style="text-align: center">
 
-                <img  src="{{ asset('img/imageTri.jpg') }}" alt="..." class="img-thumbnail">
-                <img  src="{{ asset('img/imageTri2.jpg') }}" alt="..." class="img-thumbnail">
+                <img  src="{{ asset('img/imageTri.jpg') }}" alt="..." class="img-thumbnail margin-top">
+                <img  src="{{ asset('img/imageTri2.jpg') }}" alt="..." id="marginimage" class="img-thumbnail margin-top">
 
 
             </div>

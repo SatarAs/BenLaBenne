@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+{% block page_title %}{{ article.titre }}{% endblock %}
+
+{% block content %}
+
+    <div class="container margin-top">
+        <div class="row">
+            <h1 class="rounded mx-auto d-block margin-top">Article</h1>
+
+            <a href="{{ path('news_article', {'id': id}) }}" class="btn btn-success rounded mx-auto d-block" style="height: 40px">Voir article</a>
+
+            <table class="table margin-bottom">
+                <tbody>
+                <tr>
+                    <th><h5>Titre</h5></th>
+                    <td>{{ article.titre }}</td>
+                </tr>
+                <tr>
+                    <th><h5>Chapo</h5></th>
+                    <td>{{ article.chapo }}</td>
+                </tr>
+                <tr>
+                    <th><h5>Contenu</h5></th>
+                    <td>{{ article.contenu }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <a class="btn btn-success rounded mx-auto d-block" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+            {{ include('article/_delete_form.html.twig') }}
+            <a class="btn btn-warning rounded mx-auto d-block" href="{{ path('article_index') }}">Retour</a>
+
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_row(form.titre) }}
+        {{ form_row(form.chapo) }}
+        {{ form_row(form.contenu) }}
+        <button class="btn btn-success btn-sm">{{ button_label|default('Sauvegarder') }}</button>
+        {{ form_end(form) }}
+
+    </div>
+</div>

@@ -1,0 +1,118 @@
+{% extends "layout.html.twig" %}
+
+{% block page_title %} Benne {% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid margin-top margin-bottom">
+        <div class="row margin-top margin-bottom">
+            <div class="col-sm-4 margin-top">
+                <ul class="nav animated fadeIn rounded mx-auto d-block">
+                    <div class="list-group">
+                        <a href="{{ url('admin_index') }}" class="list-group-item list-group-item-action"><i class="fas fa-home"></i>
+                            Tableau de bord
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-arrow-alt-circle-right"></i>Demande en attentes</a>
+                        <a href="{{ url('admin_containers') }}" class="list-group-item list-group-item-action active"><i class="fas fa-list-ul"></i>Liste Benne</a>
+                        <a href="{{ url('article_index') }}" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i>Liste Article</a>
+                        <a href="{{ url('admin_account') }}"class="list-group-item list-group-item-action"><i class="far fa-user-circle"></i> Voir Compte</a>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-sm-8 margin-top">
+                <div class="card  rounded mx-auto d-block" style="width: 50rem;">
+                    <div class="card-header bg-gradient-light">
+                        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModalCenter">
+                            Ajouter
+                        </button>
+
+                        <p style="color: black;"> <h3> Bennes </h3></p>
+
+                    </div>
+                    <table class="table table-striped text-center">
+                        <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Numéro</th>
+                            <th scope="col">Voie</th>
+                            <th scope="col">Code Postal</th>
+                            <th scope="col">Commune</th>
+                            <th scope="col">Position X</th>
+                            <th scope="col">Position Y</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for feature in features|slice(0, 20) %}
+                            <tr>
+                                <th scope="row">1</th>
+                                {% if feature.properties.numerodansvoie is defined %}
+                                    <td>{{ feature.properties.numerodansvoie }}</td>
+                                {% elseif feature.properties.numerodansvoie is not defined %}
+                                    <td>NaN</td>
+                                {% endif %}
+                                <td>{{ feature.properties.voie }}</td>
+                                <td>{{ feature.properties.code_postal }}</td>
+                                <td>{{ feature.properties.commune }}</td>
+                                <td>{{ feature.geometry.coordinates.0 }}</td>
+                                <td>{{ feature.geometry.coordinates.1 }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalCenterTitle">Ajouter une benne</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Position</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Longitude et latitude</span>
+                            </div>
+                            <input type="text" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="Last name" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Département</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Id</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success rounded mx-auto d-block">Ajouter</button>
+                    <button type="button" class="btn btn-danger rounded mx-auto d-block" data-dismiss="modal">Annuler</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% endblock %}

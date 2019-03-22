@@ -16,6 +16,7 @@ class Article
      */
     private $id;
 
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -31,37 +32,8 @@ class Article
      */
     private $contenu;
 
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $created_at;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="article")
-     */
-    private $admin;
-
-    /**
-     * @return mixed
-     */
-    public function getAdmin()
-    {
-        return $this->admin;
-    }
-
-    /**
-     * @param mixed $admin
-     */
-    public function setAdmin($admin): void
-    {
-        $this->admin = $admin;
-    }
 
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getTitre(): ?string
     {
@@ -99,15 +71,19 @@ class Article
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
-        return $this->created_at;
+        return $this->id;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
     {
-        $this->created_at = $created_at;
-
-        return $this;
+        $this->id = $id;
     }
 }

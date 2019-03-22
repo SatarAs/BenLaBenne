@@ -9,7 +9,7 @@ class SecurityController extends AbstractController
 {
 
     /**
-     * @Route("/admin/connexion", name="security_connexion", methods={"GET"})
+     * @Route("/connexion", name="security_connexion", methods={"GET"})
      */
     public function connexion()
     {
