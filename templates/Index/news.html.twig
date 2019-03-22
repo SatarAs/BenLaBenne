@@ -7,7 +7,7 @@
             <div class="col-sm-9" id="background12" style="text-align: center">
                 <h1 class="margin-top margin-bottom" style="color: #3c8564"> Liste des dernières actualités</h1>
 
-    {% for key in articles %}
+    {% for key in article|slice(0, 23) %}
 
         <div class="card card-cascade rounded mx-auto d-block wider reverse margin-top" style="width: 72%">
 
