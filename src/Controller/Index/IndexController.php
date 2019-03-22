@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller\Index;
+use App\Entity\Article;
 use App\Entity\NewsletterSend;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -9,6 +11,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
+
+
+    /**
+     * @var ArticleRepository
+     */
+    private $repository;
+    public function __construct(ArticleRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * @Route("/", name="index_home")
      */
@@ -23,18 +36,16 @@ class IndexController extends AbstractController
      */
     public function news()
     {
-        return $this->render('Index/news.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
+        $articles = $this->repository->findAll();
+        return $this->render('Index/news.html.twig', compact('articles'));
     }
     /**
      * @Route("/news/articles/{id}", name="news_article")
      */
-    public function article()
+    public function article($id)
     {
-        return $this->render('Index/news.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
+        $article = $this->repository->find($id);
+        return $this->render('Index/article.html.twig', compact('article'));
     }
     /**
      * @Route("/chat", name="chat")
