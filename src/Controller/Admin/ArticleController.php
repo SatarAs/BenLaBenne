@@ -56,6 +56,7 @@ class ArticleController extends AbstractController
     {
         return $this->render('article/show.html.twig', [
             'article' => $article,
+            'id'      => $article->getId()
         ]);
     }
 
